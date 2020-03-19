@@ -1,0 +1,50 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://AstronomicalObjects/Planet.gd" type="Script" id=1]
+[ext_resource path="res://AstronomicalObjects/Projections/EquirectangularProjection.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/Shaders/EquirectangularProjection.shader" type="Shader" id=3]
+
+
+[sub_resource type="SphereShape" id=1]
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("EquirectangularProjection")
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("EquirectangularProjection")
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+albedo_texture = SubResource( 2 )
+metallic_specular = 1.0
+metallic_texture = SubResource( 3 )
+roughness_texture_channel = 3
+
+[sub_resource type="SphereMesh" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_color = Color( 0.490196, 0.317647, 0.317647, 1 )
+
+[sub_resource type="ShaderMaterial" id=7]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+
+[node name="Planet" type="StaticBody"]
+transform = Transform( 0.886861, 0, 0.462038, 0, 1, 0, -0.462038, 0, 0.886861, 0, 0, 0 )
+script = ExtResource( 1 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+material_override = SubResource( 4 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 6 )
+
+[node name="EquirectangularProjection" parent="." instance=ExtResource( 2 )]
+size = Vector2( 1536, 768 )
+
+[node name="ColorRect" parent="EquirectangularProjection" index="0"]
+material = SubResource( 7 )
+
+[editable path="EquirectangularProjection"]

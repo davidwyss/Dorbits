@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/Material.tres" type="Material" id=1]
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.5, 2, 2 )
+
+[node name="Square" type="MeshInstance"]
+material_override = ExtResource( 1 )
+mesh = SubResource( 1 )
+material/0 = null
