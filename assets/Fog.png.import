@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/SolarPanel004_8K_Color.jpg-a23b596069b197ec82518521041c4e78.s3tc.stex"
-path.etc2="res://.import/SolarPanel004_8K_Color.jpg-a23b596069b197ec82518521041c4e78.etc2.stex"
+path.s3tc="res://.import/Fog.png-01ea68c53c69766fb45d0c9c241faf1c.s3tc.stex"
+path.etc2="res://.import/Fog.png-01ea68c53c69766fb45d0c9c241faf1c.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/Textures/SolarPanel/SolarPanel004_8K_Color.jpg"
-dest_files=[ "res://.import/SolarPanel004_8K_Color.jpg-a23b596069b197ec82518521041c4e78.s3tc.stex", "res://.import/SolarPanel004_8K_Color.jpg-a23b596069b197ec82518521041c4e78.etc2.stex" ]
+source_file="res://assets/Fog.png"
+dest_files=[ "res://.import/Fog.png-01ea68c53c69766fb45d0c9c241faf1c.s3tc.stex", "res://.import/Fog.png-01ea68c53c69766fb45d0c9c241faf1c.etc2.stex" ]
 
 [params]
 

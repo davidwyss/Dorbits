@@ -4,7 +4,6 @@
 [ext_resource path="res://AstronomicalObjects/Projections/EquirectangularProjection.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/Shaders/EquirectangularProjection.shader" type="Shader" id=3]
 
-
 [sub_resource type="SphereShape" id=1]
 
 [sub_resource type="ViewportTexture" id=2]

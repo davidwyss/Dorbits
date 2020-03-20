@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Dorbits"
-run/main_scene="res://MainMenu/main_menu.tscn"
+run/main_scene="res://GUIs/MainMenus/main_menu.tscn"
 config/icon="res://icon.png"
 
 [editor_plugins]
@@ -26,3 +26,7 @@ enabled=PoolStringArray(  )
 [physics]
 
 3d/default_gravity=0.0
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
