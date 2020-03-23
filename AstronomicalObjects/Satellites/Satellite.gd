@@ -1,3 +1,4 @@
+tool
 extends Spatial
 
 var subsys = load('res://AstronomicalObjects/Satellites/Subsystem/Subsystem.tscn')
@@ -10,6 +11,7 @@ func _ready():
 
 func spawn_subsystem(amount):
     var count = amount
+
     while(amount > 0):
         var rotation =  float(amount) / count * 2.0 *PI
         print(rotation)

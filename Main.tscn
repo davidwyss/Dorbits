@@ -6,15 +6,22 @@
 [ext_resource path="res://Space.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AstronomicalObjects/Star.tscn" type="PackedScene" id=5]
 
+
+
+
+
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.886861, 0, 0.462038, 0, 1, 0, -0.462038, 0, 0.886861, 0.035491, 0.0830612, -4.07116 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278684, 0.990937, 5.2288 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 4 )]
 
 [node name="Sun" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.18554 )
+
+[node name="Sun2" parent="." instance=ExtResource( 5 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31409, -1.89907, -3.99967 )
