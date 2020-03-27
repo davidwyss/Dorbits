@@ -163,10 +163,3 @@ custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 text = "Prototype
 Version: 0.3.2"
-
-[node name="RightContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_left = 384.0
-margin_right = 784.0
-margin_bottom = 438.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
