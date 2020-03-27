@@ -23,6 +23,10 @@ config/icon="res://icon.png"
 
 enabled=PoolStringArray(  )
 
+[physics]
+
+3d/default_gravity_vector=Vector3( 0, 0, 0 )
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"

@@ -1,4 +1,4 @@
-extends StaticBody
+extends RigidBody
 
 var speed = 1
 

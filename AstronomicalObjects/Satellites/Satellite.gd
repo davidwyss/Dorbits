@@ -13,7 +13,7 @@ func spawn_subsystem(amount):
     var count = amount
 
     while(amount > 0):
-        var rotation =  float(amount) / count * 2.0 *PI
+        var rotation =  float(amount) / count * 2.0 * PI
         print(rotation)
         subsystems.append(subsys.instance())
         add_child(subsystems[-1])
