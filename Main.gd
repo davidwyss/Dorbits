@@ -1,9 +1,10 @@
 
+
 extends Spatial
 var Satellites = []
 
 func _ready():
-    var amount = 10
+    var amount = 0
     var Satellite = load("res://AstronomicalObjects/Satellites/Satellite.tscn") 
     for i in range(amount): 
         Satellites.append(Satellite.instance())

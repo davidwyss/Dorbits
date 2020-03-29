@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://AstronomicalObjects/Planet.tscn" type="PackedScene" id=2]
@@ -6,22 +6,36 @@
 [ext_resource path="res://Space.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AstronomicalObjects/Star.tscn" type="PackedScene" id=5]
 
+[sub_resource type="ParticlesMaterial" id=1]
+direction = Vector3( 0, 0, 0 )
+gravity = Vector3( 0, 0, 0 )
 
-
-
+[sub_resource type="SphereMesh" id=2]
+radius = 0.5
+height = 1.0
 
 [node name="Main" type="Spatial"]
 script = ExtResource( 1 )
 
 [node name="Planet" parent="." instance=ExtResource( 2 )]
-transform = Transform( 0.886861, 0, 0.462038, 0, 1, 0, -0.462038, 0, 0.886861, 0.035491, 0.0830612, -4.07116 )
+transform = Transform( -0.0205126, 0, 0.999792, 0, 1, 0, -0.999792, 0, -0.0205126, 0.035491, 0.0830612, -13.2036 )
+direction = Vector3( 4, 0, 0 )
+active = false
+mass = 20000
+
+[node name="Particles" type="Particles" parent="Planet"]
+transform = Transform( 1, 0, 1.11759e-08, 0, 1, 0, -1.11759e-08, 0, 1, 0, 0, 0 )
+amount = 100
+lifetime = 200.0
+visibility_aabb = AABB( -50, -50, -50, 100, 100, 100 )
+local_coords = false
+process_material = SubResource( 1 )
+draw_pass_1 = SubResource( 2 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278684, 0.990937, 5.2288 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.278684, 0.990937, -10.6155 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 4 )]
 
-[node name="Sun" parent="." instance=ExtResource( 5 )]
-
-[node name="Sun2" parent="." instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.31409, -1.89907, -3.99967 )
+[node name="AstroObj" parent="." instance=ExtResource( 5 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0 )

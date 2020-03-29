@@ -1,5 +1,4 @@
-tool
-extends RigidBody
+extends "res://AstronomicalObjects/AstronomicalObject.gd"
 
 var speed = 1
 

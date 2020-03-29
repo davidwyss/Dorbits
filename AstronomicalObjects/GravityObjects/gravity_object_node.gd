@@ -1,3 +1,4 @@
+tool
 extends KinematicBody
 
 var G = 6.67*pow(10,-11)

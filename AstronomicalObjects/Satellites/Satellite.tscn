@@ -10,6 +10,8 @@ mid_height = 2.0
 
 [node name="Satelllite" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+mass = 0
 
 [node name="Core" parent="." index="0" instance=ExtResource( 3 )]
 mesh = SubResource( 1 )
+material/0 = null

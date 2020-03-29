@@ -1,10 +1,9 @@
 tool
-extends Spatial
+extends "res://AstronomicalObjects/AstronomicalObject.gd"
 
 var subsys = load('res://AstronomicalObjects/Satellites/Subsystem/Subsystem.tscn')
 
 var subsystems = []
-var mode = 0
 
 func _ready():
     spawn_subsystem(10)
@@ -14,7 +13,6 @@ func spawn_subsystem(amount):
 
     while(amount > 0):
         var rotation =  float(amount) / count * 2.0 * PI
-        print(rotation)
         subsystems.append(subsys.instance())
         add_child(subsystems[-1])
         subsystems[-1].translation.z += 1.5
@@ -28,4 +26,3 @@ func rotateAround(obj, point, axis, angle):
     obj.global_translate (-tStart)
     obj.transform = obj.transform.rotated(axis, -rot)
     obj.global_translate (tStart)
-    
