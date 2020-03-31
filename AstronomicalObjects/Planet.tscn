@@ -21,8 +21,9 @@ shader = ExtResource( 3 )
 [sub_resource type="SphereShape" id=5]
 
 [node name="Planet" instance=ExtResource( 4 )]
-transform = Transform( -0.0938341, 0, 0.994719, 0, 1, 0, -0.994719, 0, -0.0938341, 0, 0, 0 )
+transform = Transform( -0.0513172, 0, -0.997822, 0, 1, 0, 0.997822, 0, -0.0513172, 0, 0, 0 )
 script = ExtResource( 1 )
+solar_mass = null
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )

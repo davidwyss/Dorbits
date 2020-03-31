@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/Shaders/Star.shader" type="Shader" id=1]
 [ext_resource path="res://assets/Shaders/Star_Emission.shader" type="Shader" id=2]
 [ext_resource path="res://AstronomicalObjects/AstronomicalObject.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AstronomicalObjects/Star.gd" type="Script" id=4]
 
 [sub_resource type="SphereShape" id=1]
+margin = 10.0
 
 [sub_resource type="ParticlesMaterial" id=2]
 emission_shape = 1
@@ -48,6 +50,7 @@ shader = ExtResource( 1 )
 shader_param/noise = SubResource( 9 )
 
 [node name="AstroObj" instance=ExtResource( 3 )]
+script = ExtResource( 4 )
 
 [node name="CollisionShape" parent="." index="0"]
 shape = SubResource( 1 )
