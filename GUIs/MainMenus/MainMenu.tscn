@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://assets/Fonts/run.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://GUIs/MainMenus/menu_options.gd" type="Script" id=2]
-[ext_resource path="res://assets/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GUIs/MainMenus/MenuMenu.gd" type="Script" id=2]
+[ext_resource path="res://assets/Fonts/run.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://AstronomicalObjects/Satellites/Satellite.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GUIs/MainMenus/Satellite3dProp.gd" type="Script" id=5]
+[ext_resource path="res://Cameras/Camera.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -64,33 +67,58 @@ shader_param/color = Vector3( 1, 0.2, 1 )
 shader_param/OCTAVES = 4
 shader_param/alpha = 0.25
 
-[sub_resource type="DynamicFont" id=3]
-size = 128
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 1 )
+[sub_resource type="ViewportTexture" id=3]
 
 [sub_resource type="DynamicFont" id=4]
-size = 64
-font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 24
+size = 128
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 3 )
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="DynamicFont" id=5]
+size = 64
+font_data = ExtResource( 3 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = 1280.0
-margin_bottom = 720.0
-color = Color( 0, 0, 0, 1 )
+[sub_resource type="DynamicFont" id=6]
+size = 24
+font_data = ExtResource( 1 )
+
+[node name="Node2D" type="Node2D"]
 
 [node name="TextureRect" type="ColorRect" parent="."]
 material = SubResource( 2 )
 margin_right = 1280.0
 margin_bottom = 720.0
 color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Sprite" parent="."]
+position = Vector2( 871, 333 )
+texture = SubResource( 3 )
+script = ExtResource( 5 )
+
+[node name="Viewport" type="Viewport" parent="Viewport"]
+size = Vector2( 300, 300 )
+own_world = true
+transparent_bg = true
+msaa = 2
+hdr = false
+usage = 3
+
+[node name="Satelllite" parent="Viewport/Viewport" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0 )
+direction = Vector3( 0, 0, 0 )
+active = true
+solar_mass = 1.0
+
+[node name="Camera" parent="Viewport/Viewport" instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 40, 0 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="Viewport/Viewport"]
+transform = Transform( -0.440239, 0.89417, -0.0815467, 0.0456532, 0.112996, 0.992546, 0.896719, 0.433235, -0.0905667, 0, 0, 0 )
+light_color = Color( 0.94902, 0.65098, 1, 1 )
+light_energy = 5.36
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -103,6 +131,9 @@ custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
 custom_constants/margin_bottom = 80
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 120.0
@@ -118,7 +149,7 @@ margin_bottom = 438.0
 show_behind_parent = true
 margin_right = 380.0
 margin_bottom = 128.0
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.0666667, 0.666667, 0.266667, 1 )
 text = "Dorbits"
 
@@ -135,7 +166,7 @@ script = ExtResource( 2 )
 margin_top = 18.0
 margin_right = 380.0
 margin_bottom = 82.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Continue"
 
@@ -143,7 +174,7 @@ text = "Continue"
 margin_top = 87.0
 margin_right = 380.0
 margin_bottom = 151.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "new game"
 
@@ -151,7 +182,7 @@ text = "new game"
 margin_top = 156.0
 margin_right = 380.0
 margin_bottom = 220.0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "options"
 
@@ -159,7 +190,7 @@ text = "options"
 margin_top = 375.0
 margin_right = 380.0
 margin_bottom = 438.0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 text = "Prototype
 Version: 0.3.2"

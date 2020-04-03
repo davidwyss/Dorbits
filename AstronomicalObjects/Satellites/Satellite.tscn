@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.gd" type="Script" id=1]
 [ext_resource path="res://AstronomicalObjects/AstronomicalObject.tscn" type="PackedScene" id=2]
 [ext_resource path="res://AstronomicalObjects/Satellites/Core.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Materials/Aluminium.tres" type="Material" id=4]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 2.0
@@ -10,8 +11,8 @@ mid_height = 2.0
 
 [node name="Satelllite" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-mass = 0
 
 [node name="Core" parent="." index="0" instance=ExtResource( 3 )]
+material_override = ExtResource( 4 )
 mesh = SubResource( 1 )
 material/0 = null

@@ -1,22 +1,203 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Materials/Aluminium.tres" type="Material" id=1]
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystem/Subsystem.gd" type="Script" id=2]
 
 [sub_resource type="CubeMesh" id=1]
-size = Vector3( 0.75, 2.999, 4 )
+size = Vector3( 0.5, 3, 4 )
 
-[sub_resource type="PrismMesh" id=2]
-size = Vector3( 2, 4, 3 )
+[sub_resource type="Animation" id=2]
+length = 18.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("./SolarPanelExtension:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 4 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("./SolarPanelExtension:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 4, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("./SolarPanelExtension2:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 8 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("./SolarPanelExtension2:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 6, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("./SolarPanelExtension3:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 12 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("./SolarPanelExtension3:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 8, 12 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("./SolarPanelExtension4:translation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 16 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("./SolarPanelExtension4:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 10, 14 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("./SolarPanelExtension5:translation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 20 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("./SolarPanelExtension5:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 12, 16 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("./SolarPanelExtension:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("./SolarPanelExtension2:translation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 2 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("./SolarPanelExtension3:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 4 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("./SolarPanelExtension4:translation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 6 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("./SolarPanelExtension5:translation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 8 ) ]
+}
 
 [node name="Square" type="MeshInstance"]
 material_override = ExtResource( 1 )
 mesh = SubResource( 1 )
 material/0 = null
 script = ExtResource( 2 )
-expansion_speed = 0.1
 
-[node name="Pyramid" type="MeshInstance" parent="."]
-transform = Transform( 1, 0, -1.62921e-07, -1.62921e-07, 2.65431e-14, -1, 0, 1, 2.65431e-14, 0, 0, 0 )
-mesh = SubResource( 2 )
-material/0 = ExtResource( 1 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Expand = SubResource( 2 )
+anims/Test = SubResource( 3 )

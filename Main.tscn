@@ -22,8 +22,9 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 4 )]
 
 [node name="Alpha Dolar" parent="." instance=ExtResource( 2 )]
-transform = Transform( -0.773098, 0, -0.633651, 0, 1, 0, 0.633651, 0, -0.773098, 18.0885, 0.0507519, 3.86383 )
-direction = Vector3( 0.744399, 0.011019, -0.900921 )
+transform = Transform( -0.479982, 0, -0.877095, 0, 1, 0, 0.877095, 0, -0.479982, 37.0274, -1.93167, -29.0346 )
+direction = Vector3( 0.300003, 0.411782, -0.655343 )
+active = true
 solar_mass = 0.001
 
 [node name="Particles" type="Particles" parent="Alpha Dolar"]
@@ -36,5 +37,7 @@ process_material = SubResource( 1 )
 draw_pass_1 = SubResource( 2 )
 
 [node name="Star" parent="." instance=ExtResource( 5 )]
-transform = Transform( 2.89257, 0, -0.795491, 0, 3, 0, 0.795491, 0, 2.89257, 0, 0, 0 )
-active = false
+transform = Transform( 2.40514, 0, -1.79427, 0, 3, 0, 1.79427, 0, 2.40514, 42.2045, 5.71145, -18.2737 )
+direction = Vector3( 0.0289614, -0.0106911, -0.000703739 )
+active = true
+solar_mass = 1.0

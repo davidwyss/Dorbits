@@ -13,8 +13,12 @@ func _process(_delta):
         if Input.is_action_just_pressed("ui_up"):
             select_menu_option(selected_label_index - 1 if  selected_label_index - 1 >= 0 else labelcount -1)
         if Input.is_action_just_pressed("ui_right") || Input.is_action_pressed("enter"):
-# warning-ignore:return_value_discarded
-            get_tree().change_scene("res://Main.tscn")
+            if selected_label_index == 2:
+                # warning-ignore:return_value_discarded
+                get_tree().change_scene("res://GUIs/SatelliteInfos/SatelliteInfo.tscn")
+            else:    
+                # warning-ignore:return_value_discarded
+                get_tree().change_scene("res://Main.tscn")
             
 
 func select_menu_option(index):

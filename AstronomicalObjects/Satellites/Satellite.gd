@@ -7,7 +7,7 @@ var subsys = load('res://AstronomicalObjects/Satellites/Subsystem/Subsystem.tscn
 var subsystems = []
 
 func _ready():
-    spawn_subsystem(10)
+    spawn_subsystem(20)
 
 func spawn_subsystem(amount):
     var count = amount
@@ -16,7 +16,7 @@ func spawn_subsystem(amount):
         var rotation =  float(amount) / count * 2.0 * PI
         subsystems.append(subsys.instance())
         add_child(subsystems[-1])
-        subsystems[-1].translation.z += 1.5
+        subsystems[-1].translation.z += 3
         subsystems[-1].translation.y += 1
         rotateAround(subsystems[-1],Vector3(0,0,0),Vector3(0,1,0),rotation)
         amount -= 1
