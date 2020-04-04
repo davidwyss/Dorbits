@@ -1,2 +1,2 @@
 # Dorbits
-A proposed gameproject.
+A gameproject.
