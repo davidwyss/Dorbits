@@ -1,0 +1,208 @@
+\documentclass[a4paper]{scrreprt}
+\usepackage{color}
+
+\title{Dorbits Design Document}
+\author{David Bart & David Wyss}
+
+\begin{document}
+% Drones can be salvaged
+
+%\new environment{king}{\rule{1ex}{1ex}\hspace{\stretch{1}}}{\hspace{\stretch{1}}\rule{1ex}{1ex}}
+\definecolor{alpha-color}{rgb}{1., 0.2, 0.1}
+\newenvironment{alpha-feature}{\color{alpha-color}}{}
+
+\maketitle
+\tableofcontents
+
+\chapter{Preamble}
+    \section{Notes}
+    In video game development people tend to only imagine the finished product. But it is important to first finish a version, containing the core concepts. So some of the features which belong only to the alpha stage are marked with red. If the pre-alpha proves to be too ambitious we could ignore the graphical interface and do it with ncurses, this will lighten a significant amount of the workload, though I don't get top play around with shaders. 
+% Maybe no collision detection needed
+
+\chapter{Factory}
+    \section{Description}
+        This is where satellites are being created, repaired or reprogrammed. 
+        It's the only thing the player can directly interact with.
+        Drones leaving the stations are autonomous. \begin{alpha-feature}(Though you could send messages, by sending another satellite?)\end{alpha-feature}
+    \section{Design Drone}
+        Create and select subsystems for the satellite.
+        To create a satellite you must design a model. This model needs a subsystem.
+        You use existing systems or create new ones to fit. 
+        The core controls the subsystems. Programming them is a core part of the game. This can be done using several methods.
+        \subsection{Program Core. Proposal 1}
+             Program the satellite with actual code.
+        \subsection{Program Core. Proposal 2}
+            Program the satellite using restricted language.
+            Just enough so they can't screw up too hard.
+        \subsection{Program Core. Proposal 3}
+            Just program the satellite using code snippets.
+        \subsection{Program Core. Proposal 4}
+            Give out preprogrammed drones.
+            Drones: attack, defense, spy, hacking, trade, gatherer, armed gatherer.
+        \subsection{Program Core. Proposal 5}
+            Combine and unlock archetypes while the game progresses.
+            Gatherer + Attack -> Perfect to gather scrap metals in hostile zones or to exploit defenseless satellites. 
+            Spy + Attack -> Analyses subsystems and can analyze success of an attack. 
+        \subsection{Program Core. Proposal 6}
+            Give out preprogrammed behaviours triggered by defined conditions, which can be combined/chained together etc.
+            Behaviours: offense, aggressive retreat, retreat, gather/trade, kamikaze, build, spy, race the sun.
+            Conditions: attacked, trade requested, stability at x percent, newly entered orbit, x time passed since condition x, unix timestamp x has passed.
+        \subsection{Program Core. Proposal 7}
+        Player mixes and matchers preprogrammed function.
+        \subsection{Problems}
+        The Problem with letting people program freely are firstly performance reasons. Maybe we can check if a satellite is using too much system resources (maybe even letting the amount used be an in game upgrade.). Secondly people making intentionally or unintentionally invite loops.
+    \section{Drone Logs}
+        Drones with the right subsystems may send back data, like current location, satellites in system, etc...
+        Data is separated by Drone.
+        \begin{alpha}
+        Data will be shown with statistics.
+        \end{alpha}
+    \begin{alpha}
+    \section{Scrapping + Repair}
+        Damaged drones may return to their station, where they can be disassembled or repaired.
+        Disassembled systems can be recycled, though this is costly. It's usually better to reuse them.
+    \end{alpha}
+
+\chapter{Drones}
+\section{Description}
+    Autonomous programmable agents.
+\section{Orbital Speeds}
+    It is not an extremely accurate model. But modelling earths gravity field is \\
+    $orbital\_velocity = \sqrt{gravitational\_constant * mass\_of\_planet / distance\_planet-earth\_center}$\\
+    Calculating simulated orbital speeds of satellites is easy, it's not rocket science.
+    More can be found here \href{https://www.physicsclassroom.com/class/circles/Lesson-4/Mathematics-of-Satellite-Motion}{here}.
+\section{Perception}
+    Only Perceive what their sensors tell them.
+    They are autonomous and don't get information from the player except, when they are in the factory.
+    Drones don't know whom the satellites belong to. Though players may mark their satellites with specific properties and satellites can examine the programming Example: other\_satellite.is\_friend = (storage\_size = 999).
+
+\chapter{Resources}
+    \section{Energy}
+        There are three ways to generate energy. 
+        \subsection{Solar Energy}
+            The solar energy gained depends on if there's an object in the way and the distance. For ludicrous energy output -> Dyson sphere around sun orbit.
+        \begin{alpha-feature}
+            \subsection{Gravitational Energy}
+                Drop matter to generate energy. Usually only gaining a tiny amount of momentum.
+                Black holes are extremely efficient for this.
+        \end{alpha-feature}
+        \subsection{Reactions}
+        Combine two or more materials to generate an exothermic reaction rapidly shooting out the combined materials (is technically gravitational energy).
+    \section{Materials}
+        The differing materials used for the construction of the drones, their systems and others. What these are doesn't matter yet. But they are differently distributed depending on their orbit.
+\chapter{Drone Systems}
+    a\section{Description}
+        These are all the possible modules for Drones. 
+        \begin{verbatim}
+            var status
+        \end{verbatim}
+    \section{Solar Cells}
+        \subsection{Program}
+            \begin{verbatim}
+                var avg\_power
+                full_charge_left
+            \end{verbatim}
+    \section{Thrusters}
+        If you want to leave the factory this is recommended.
+        \subsection{Program}
+            \begin{verbatim}
+                var current_speed
+                func accelerate(to,time)
+                func accelerate(time)
+                func rotate(x,y,z)
+            \end{verbatim}
+    \section{Energy shield}
+        \subsection{Program}
+            \begin{verbatim}
+                var last_hits //[Energy_consumed,UNIX_Timestamp]
+                var shield_integrity
+            \end{verbatim}
+    \section{checksum}
+        Notices if drones programming is different than factory programming system by checking the system e.g. radiation corruption or module hacking.
+        \subsection{Program}
+            \begin{verbatim}
+                func syscheck(target_satellite)
+            \end{verbatim}
+    \section{Scanner}
+        There are different types of scanners, with varying purposes.
+        From afar you can scan the satellites. 
+        \subsection{Program}
+            \begin{verbatim}
+                var current_coordinates
+                var last_scan
+                func scan()
+            \end{verbatim}
+    \section{Hacking}
+        From afar you can compromise modules and replace it with code.
+        If the code leads to errors and if backup is available, the system will reboot.
+        Certain units can not be hacked.
+        It is generally better to manipulate the system to give bad values, than just disabling the system by inserting random strings.
+        \subsection{Program}
+            \begin{verbatim}
+                func send_hacking_satellite()
+            \end{verbatim}
+    \section{Drone Reprogrammer}
+        Docked satellite reprograms satellite, example: Satellites shields and weapons are down and satellite replaces enemies programming with its own using its backup.
+        \subsection{Program}
+            \begin{verbatim}
+                func reprogram()
+            \end{verbatim}
+    \section{Telemetry}
+        Broadcasts encrypted information to all entities (enemy can gain access to the keys).
+        \subsection{Program}
+            \begin{verbatim}
+                func broadcast(info,frequenzy(D=1))
+            \end{verbatim}
+    \section{weapon system}
+        \subsection{Program}
+            \begin{verbatim}
+                func shoot(frequenzy(D=1))
+            \end{verbatim}
+        
+\begin{alpha-feature}  
+    \chapter{Orbits}
+        \section{Description}
+            Drones are always in some orbit, these orbits present varying degrees of opportunities and dangers.
+            Different Drones adapt differently depending on the environment. 
+        \section{Settlements}
+            Most orbits possess some kinds of settlements. You can diplomatically interact with them. These settlements also spawn their own satellites for defense, gathering etc.
+        \section{Example orbits}
+            \subsection{Earth}
+                A lot of profitable Trading opportunity.
+                Ludicrous amounts of space debris.
+                Hostile drones will be shot from the surface.
+            \subsection{Sun}
+                Lots of power.
+                Low drone hostility. 
+            \subsection{a}
+                Radiation hazards result in bit flips.
+                Sensor difficulties.
+                Rare materials.
+            \subsection{Empty}
+               Represents an empty planet. 
+               No NPCs.
+               Ideal for building bases.
+            \subsection{b}
+                No Sun exposure.
+                Dangerous Drones.
+                Surface Bombardment.
+                Smugglers sell rare materials cheap.
+                New systems can be bought for energy.
+            \subsection{c}
+                Dysfunctional nano machine swarms.
+                Lots of materials.
+                High satellite population.
+            \subsection{arena}
+                No sun exposure.
+                Arena: Gain materials upon destroying the enemy.
+            \subsection{player station}
+\end{alpha-feature}
+        
+
+\chapter{Crazy ideas}
+Just some more Crazed ideas. Which should probably only be consider once an alpha version has finished.
+    Advanced telemetry analysis.
+    Megastructures? Megastructures!
+    Opponents are pre trained but also learning neural networks.
+    The Distance between Planets asteroid etc. is being pretty accurately represented and tracked. Planet Y has X light years distance to Earth but in summer it has Z. 
+\end{document}
