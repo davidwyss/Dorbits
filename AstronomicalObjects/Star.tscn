@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/Shaders/Star.shader" type="Shader" id=1]
 [ext_resource path="res://assets/Shaders/Star_Emission.shader" type="Shader" id=2]
@@ -9,23 +9,13 @@
 margin = 10.0
 
 [sub_resource type="ParticlesMaterial" id=2]
-emission_shape = 1
-emission_sphere_radius = 1.0
 flag_align_y = true
-direction = Vector3( 0, 0, 0 )
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-
-[sub_resource type="OpenSimplexNoise" id=3]
-
-[sub_resource type="NoiseTexture" id=4]
-seamless = true
-noise = SubResource( 3 )
+spread = 180.0
+gravity = Vector3( 0, -0.2, 0 )
+initial_velocity = 1.0
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 2 )
-shader_param/size = 1.0
-shader_param/noise = SubResource( 4 )
 
 [sub_resource type="SphereMesh" id=6]
 material = SubResource( 5 )
@@ -35,14 +25,14 @@ height = 0.2
 [sub_resource type="SphereMesh" id=7]
 
 [sub_resource type="OpenSimplexNoise" id=8]
-period = 12.0
-persistence = 1.0
-lacunarity = 1.0
+octaves = 6
+period = 8.0
+persistence = 0.0
+lacunarity = 0.1
 
 [sub_resource type="NoiseTexture" id=9]
-width = 128
-height = 128
-seamless = true
+width = 1
+height = 500
 noise = SubResource( 8 )
 
 [sub_resource type="ShaderMaterial" id=10]
@@ -50,6 +40,7 @@ shader = ExtResource( 1 )
 shader_param/noise = SubResource( 9 )
 
 [node name="AstroObj" instance=ExtResource( 3 )]
+transform = Transform( -0.820096, 0, -0.576225, 0, 1, 0, 0.576225, 0, -0.820096, 0, 0, 0 )
 script = ExtResource( 4 )
 
 [node name="CollisionShape" parent="." index="0"]
@@ -60,14 +51,16 @@ light_energy = 2.0
 omni_range = 74.481
 
 [node name="Sun Emissions" type="Particles" parent="." index="2"]
-visible = false
 amount = 128
 lifetime = 20.0
+speed_scale = 7.88
+explosiveness = 0.81
 randomness = 1.0
 visibility_aabb = AABB( -2, -2, -2, 4, 4, 4 )
 process_material = SubResource( 2 )
 draw_pass_1 = SubResource( 6 )
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="3"]
+transform = Transform( -0.974676, 0, -0.223337, 0, 1, 0, 0.223337, 0, -0.974676, 0, 0, 0 )
 mesh = SubResource( 7 )
 material/0 = SubResource( 10 )
