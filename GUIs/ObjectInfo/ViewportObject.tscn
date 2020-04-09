@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/Shaders/progress_shaders/progress_final.tres" type="Material" id=1]
+[ext_resource path="res://GUIs/ObjectInfo/ViewportObjectScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GUIs/ObjectInfo/ModuleIcon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUIs/ObjectInfo/ViewportObject.gd" type="Script" id=4]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Sprite/Viewport")
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Module" parent="." instance=ExtResource( 3 )]
+material = ExtResource( 1 )
+position = Vector2( 30, 30 )
+
+[node name="Module4" parent="." instance=ExtResource( 3 )]
+material = ExtResource( 1 )
+position = Vector2( 30, 230 )
+
+[node name="Module2" parent="." instance=ExtResource( 3 )]
+material = ExtResource( 1 )
+position = Vector2( 230, 30 )
+
+[node name="Module3" parent="." instance=ExtResource( 3 )]
+material = ExtResource( 1 )
+position = Vector2( 230, 230 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = SubResource( 1 )
+centered = false
+
+[node name="Viewport" type="Viewport" parent="Sprite"]
+size = Vector2( 300, 300 )
+transparent_bg = true
+msaa = 2
+hdr = false
+usage = 3
+
+[node name="ViewportObjectScene" parent="Sprite/Viewport" instance=ExtResource( 2 )]

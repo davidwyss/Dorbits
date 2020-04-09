@@ -86,10 +86,10 @@ font_data = ExtResource( 1 )
 
 [node name="TextureRect" type="ColorRect" parent="."]
 material = SubResource( 2 )
-margin_left = 0.814453
-margin_top = 0.950012
-margin_right = 1280.81
-margin_bottom = 720.95
+margin_left = 1.81445
+margin_top = -0.049988
+margin_right = 1281.81
+margin_bottom = 719.95
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -110,9 +110,6 @@ usage = 3
 
 [node name="Satelllite" parent="Viewport/Viewport" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0 )
-direction = Vector3( 0, 0, 0 )
-active = true
-solar_mass = 1.0
 
 [node name="Camera" parent="Viewport/Viewport" instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 40, 0 )
