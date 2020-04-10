@@ -36,11 +36,11 @@ tracks/1/keys = {
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( -0.934321, 0.344346, -0.0920347, -0.07436, 0.0642183, 0.995162, 0.34859, 0.936644, -0.0343949, 0, 0, 0 )
-light_color = Color( 0, 0.784314, 0.788235, 1 )
+light_color = Color( 0.00392157, 0, 0, 1 )
 light_energy = 8.0
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.386991, -0.835691, 0.389689, 0, 0.422618, 0.906307, -0.922084, -0.350733, 0.163549, 14.9406, 30, 6.49886 )
+transform = Transform( 0.977885, 0.189518, -0.0884521, 0, 0.422926, 0.906163, 0.209143, -0.886124, 0.413573, -2.99428, 30, 19.3286 )
 fov = 90.0
 script = ExtResource( 1 )
 
@@ -48,3 +48,6 @@ script = ExtResource( 1 )
 anims/Rotate = SubResource( 1 )
 
 [node name="Satelllite" parent="." instance=ExtResource( 2 )]
+direction = Vector3( 0, 0, 0 )
+active = true
+solar_mass = 1.0

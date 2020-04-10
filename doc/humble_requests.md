@@ -1,6 +1,7 @@
 # Color-Palette
 
-Simple solar panel icon pixelart.
-Simple energy shield icon pixelart.
-Simple weapons system icon pixelart.
-Simple telemetry system icon pixelart.
+solar panel icon pixelart.
+energy shield icon pixelart.
+weapons system icon pixelart.
+telemetry system icon pixelart.
+

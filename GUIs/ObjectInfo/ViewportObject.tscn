@@ -13,19 +13,19 @@ script = ExtResource( 4 )
 
 [node name="Module" parent="." instance=ExtResource( 3 )]
 material = ExtResource( 1 )
-position = Vector2( 30, 30 )
+position = Vector2( 391.757, 119.302 )
 
 [node name="Module4" parent="." instance=ExtResource( 3 )]
 material = ExtResource( 1 )
-position = Vector2( 30, 230 )
+position = Vector2( -469.545, 1067.88 )
 
 [node name="Module2" parent="." instance=ExtResource( 3 )]
 material = ExtResource( 1 )
-position = Vector2( 230, 30 )
+position = Vector2( 783.672, 1424.94 )
 
 [node name="Module3" parent="." instance=ExtResource( 3 )]
 material = ExtResource( 1 )
-position = Vector2( 230, 230 )
+position = Vector2( -617.455, -560.639 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = SubResource( 1 )
