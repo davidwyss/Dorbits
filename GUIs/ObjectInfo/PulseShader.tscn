@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://assets/Shaders/energy_pulse/PulseShaderv3.shader" type="Shader" id=2]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 2 )
+shader_param/EXPANSION_SPEED = 0.37
+shader_param/WAVE_SIZE = 3.0
+shader_param/WAVE_MAX_EXPANSION = 2.0
+shader_param/WAVE_COLOR = Vector3( 0.001, 0.247, 0.437 )
+shader_param/SPAWN = Vector2( 0.5, 0.521 )
+shader_param/SPAWN_RANDOM = Vector2( 0.422, 0.422 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+material = SubResource( 2 )
+position = Vector2( 33.2195, 33.2497 )
+texture = ExtResource( 1 )
