@@ -1,2 +1,2 @@
 # Dorbits
-A gameproject.
+A Strategy Game using Programmable Sattelites.
