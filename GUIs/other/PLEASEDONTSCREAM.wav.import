@@ -11,11 +11,11 @@ dest_files=[ "res://.import/PLEASEDONTSCREAM.wav-4c47be8915424280182f8a011020584
 
 [params]
 
-force/8_bit=false
-force/mono=false
+force/8_bit=true
+force/mono=true
 force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
-edit/normalize=false
-edit/loop=false
+edit/normalize=true
+edit/loop=true
 compress/mode=0

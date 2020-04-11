@@ -19,12 +19,13 @@ vec2 rotateUV(vec2 uv, vec2 pivot, float rotation) {
 
 
 void fragment() {
+    float speed=0.2;
     vec2 uv = UV;
-    uv /= sin(TIME);
-    uv += -abs(cos(TIME)*0.25);
-    uv = rotateUV(uv,vec2(.5),3.141*sin(TIME));
+    uv /= sin(TIME*speed);
+    uv += -abs(cos(TIME*speed)*0.25);
+    uv = rotateUV(uv,vec2(.5),3.141*sin(TIME*speed));
     vec2 center = vec2(0.5);
-    float max_intensity_range = fract(TIME * 0.1);
+    float max_intensity_range = fract(TIME*speed);
     float dist = distance(uv,center); 
     COLOR.rgb = texture(TEXTURE, uv).rgb;
     COLOR.rgb += vec3(dist);
