@@ -8,6 +8,7 @@ uniform float LOOPDELOOPS = 1.;
 uniform float HP_PERCENT = .75;
 uniform float ICON_DISTANCE = 1.1;
 uniform vec4 HP_COLOR = vec4(.5,0.,.25,1.);
+uniform vec3 CHARGE_COLOR = vec3(1.,0.,1.);
 uniform int STATUS; //0-OK 1-ALERT 2-DESTROYED
 
 vec2 rotateUV(vec2 uv, vec2 pivot, float rotation) {
@@ -42,6 +43,8 @@ void fragment() {
     vec4 icon = texture(TEXTURE, uv*ICON_DISTANCE - (ICON_DISTANCE-1.)/2.);
     //cutout
     COLOR.a = step(distance(center,uv),0.5);
+    
     //create Rings
     COLOR = createRing(uv,icon);
+    COLOR.rgb += CHARGE_COLOR*abs(sin((1.-UV.y)*abs(sin(TIME))));
 }
