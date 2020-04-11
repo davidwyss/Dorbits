@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-frame-0(1).png-001aa0a5fc4e90468ab3a2d7768cb47c.stex"
+path="res://.import/telemetry.png-c20360ac8bd5da57aaf647516618fbbf.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Icons/pixil-frame-0(1).png"
-dest_files=[ "res://.import/pixil-frame-0(1).png-001aa0a5fc4e90468ab3a2d7768cb47c.stex" ]
+source_file="res://assets/Icons/telemetry.png"
+dest_files=[ "res://.import/telemetry.png-c20360ac8bd5da57aaf647516618fbbf.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
