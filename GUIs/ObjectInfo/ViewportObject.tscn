@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://assets/Shaders/progress_shaders/progress_final.tres" type="Material" id=1]
+[ext_resource path="res://GUIs/ObjectInfo/SubmoduleIcons/TelemetryIcon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUIs/ObjectInfo/ViewportObjectScene.tscn" type="PackedScene" id=2]
-[ext_resource path="res://GUIs/ObjectInfo/ModuleIcon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUIs/ObjectInfo/SubmoduleIcons/LaserIcon.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GUIs/ObjectInfo/ViewportObject.gd" type="Script" id=4]
+[ext_resource path="res://GUIs/ObjectInfo/SubmoduleIcons/ShieldIcon.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Sprite/Viewport")
@@ -11,23 +12,20 @@ viewport_path = NodePath("Sprite/Viewport")
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Module" parent="." instance=ExtResource( 3 )]
-material = ExtResource( 1 )
-position = Vector2( 391.757, 119.302 )
+[node name="Icon" parent="." instance=ExtResource( 3 )]
+position = Vector2( 143.566, -24.36 )
+scale = Vector2( 0.25, 0.25 )
 
-[node name="Module4" parent="." instance=ExtResource( 3 )]
-material = ExtResource( 1 )
-position = Vector2( -469.545, 1067.88 )
+[node name="Icon2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 278.751, 240.253 )
+scale = Vector2( 0.25, 0.25 )
 
-[node name="Module2" parent="." instance=ExtResource( 3 )]
-material = ExtResource( 1 )
-position = Vector2( 783.672, 1424.94 )
-
-[node name="Module3" parent="." instance=ExtResource( 3 )]
-material = ExtResource( 1 )
-position = Vector2( -617.455, -560.639 )
+[node name="Module" parent="." instance=ExtResource( 5 )]
+position = Vector2( 30.4728, 247.108 )
+scale = Vector2( 0.25, 0.25 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 15.2, -15.2 )
 texture = SubResource( 1 )
 centered = false
 
