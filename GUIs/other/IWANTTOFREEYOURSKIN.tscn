@@ -7,7 +7,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
-shader_param/HP_PERCENT = 1.0
+shader_param/SPEED = 0.097
 
 [node name="I NEED IT" type="Sprite"]
 material = SubResource( 1 )
@@ -23,4 +23,3 @@ autoplay = true
 stream = ExtResource( 6 )
 autoplay = true
 max_distance = 230.0
-attenuation = 1.68179
