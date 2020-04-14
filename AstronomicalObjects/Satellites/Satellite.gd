@@ -1,8 +1,7 @@
-
 tool
 extends "res://AstronomicalObjects/AstronomicalObject.gd"
 
-var subsys = load('res://AstronomicalObjects/Satellites/Subsystem/Subsystem.tscn')
+var subsys = load('res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanel.tscn')
 
 var subsystems = []
 
