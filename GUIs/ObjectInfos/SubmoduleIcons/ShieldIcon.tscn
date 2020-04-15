@@ -3,24 +3,24 @@
 [ext_resource path="res://assets/Icons/energy_shield.png" type="Texture" id=1]
 [ext_resource path="res://assets/Shaders/PixelArt/Icon/EnergyShield.shader" type="Shader" id=2]
 
-
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
 shader_param/ROTATIONAL_SPEED = 3.0
 shader_param/FRAMEBORDER = 0.025
-shader_param/LOOPDELOOPS = 1.0
+shader_param/LOOPDELOOPS = 1.006
 shader_param/HP_PERCENT = 0.75
 shader_param/ICON_DISTANCE = 1.25
 shader_param/HP_COLOR = Plane( 0, 0.75, 0.75, 1 )
 shader_param/STATUS = 0
-shader_param/ZOOM = 1.0
-shader_param/WAVE_COLOR = Plane( 0, 0.395, 0.321, 1 )
-shader_param/WAVE_SPEED = 0.1
+shader_param/ZOOM = 0.025
+shader_param/WAVE_COLOR = Plane( 0.983, 0.062, 1.685, 1 )
+shader_param/WAVE_SPEED = 1.0
 shader_param/PULSE_RADIUS = 1.0
-shader_param/EMISSION_SIZE = 1.0
-shader_param/ICON_WAVE_MIX = 0.95
+shader_param/EMISSION_SIZE = 1.75
+shader_param/ICON_WAVE_MIX = 0.855
 shader_param/SPAWN = Vector2( 0.5, 0.5 )
-shader_param/SPAWN_RANDOM = Vector2( 0, 0 )
+shader_param/SPAWN_RANDOM = Vector2( 9, 9 )
+shader_param/SPAWNPOINTMOVESPEED = Vector2( 0.01, 0.01 )
 
 [node name="Module" type="Sprite"]
 material = SubResource( 1 )

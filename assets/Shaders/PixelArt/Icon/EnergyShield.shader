@@ -19,7 +19,7 @@ uniform float ICON_WAVE_MIX = .95;
 
 uniform vec2 SPAWN = vec2(.5);
 uniform vec2 SPAWN_RANDOM = vec2(.0);
-
+uniform vec2 SPAWNPOINTMOVESPEED = vec2(1.);
 vec2 rotateUV(vec2 uv, vec2 pivot, float rotation) {
     float cosa = cos(rotation);
     float sina = sin(rotation);
@@ -70,7 +70,7 @@ void fragment() {
     if(STATUS == 1){uv = rotateUV(uv,center,PI*sin(TIME*ROTATIONAL_SPEED/LOOPDELOOPS)*LOOPDELOOPS);}
     vec4 icon = texture(TEXTURE, uv*ICON_DISTANCE - (ICON_DISTANCE-1.)/2.);
     //create pulse
-    vec2 spawnpoint= SPAWN + vec2(sin(TIME),cos(TIME))*SPAWN_RANDOM;
+    vec2 spawnpoint= SPAWN + vec2(sin(TIME*SPAWNPOINTMOVESPEED.x),cos(TIME*SPAWNPOINTMOVESPEED.y))*SPAWN_RANDOM;
     icon = mix(pulsify(icon,uv,spawnpoint,TIME),icon,ICON_WAVE_MIX);
     //cutout
     COLOR.a = step(distance(center,uv),0.5);
