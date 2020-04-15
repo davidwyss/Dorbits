@@ -96,12 +96,13 @@ __meta__ = {
 }
 
 [node name="Viewport" type="Sprite" parent="."]
-position = Vector2( 871, 333 )
+position = Vector2( 886.165, 290.814 )
+scale = Vector2( 0.1, 0.1 )
 texture = SubResource( 3 )
 script = ExtResource( 5 )
 
 [node name="Viewport" type="Viewport" parent="Viewport"]
-size = Vector2( 300, 300 )
+size = Vector2( 4096, 4096 )
 own_world = true
 transparent_bg = true
 msaa = 2
@@ -116,7 +117,8 @@ transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 40, 
 
 [node name="DirectionalLight" type="DirectionalLight" parent="Viewport/Viewport"]
 transform = Transform( -0.440239, 0.89417, -0.0815467, 0.0456532, 0.112996, 0.992546, 0.896719, 0.433235, -0.0905667, 0, 0, 0 )
-light_energy = 16.0
+light_color = Color( 0.54902, 0.105882, 0.670588, 1 )
+light_energy = 32.0
 light_indirect_energy = 0.0
 light_specular = 0.0
 

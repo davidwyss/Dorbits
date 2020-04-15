@@ -6,7 +6,7 @@ var subsys = load('res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/S
 var subsystems = []
 
 func _ready():
-    spawn_subsystem(20)
+    spawn_subsystem(10)
 
 func spawn_subsystem(amount):
     var count = amount
