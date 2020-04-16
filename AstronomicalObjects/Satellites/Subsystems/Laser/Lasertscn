@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanel.gd" type="Script" id=2]
-[ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanelWingCase.tscn" type="PackedScene" id=3]
+[ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/Laser/LaserWingCase.tscn" type="PackedScene" id=1]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 length = 18.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("./mesh:translation")
@@ -191,9 +190,8 @@ tracks/4/keys = {
 
 [node name="Node2D" type="Spatial"]
 
-[node name="Wing" parent="." instance=ExtResource( 3 )]
-script = ExtResource( 2 )
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Wing"]
-anims/Expand = SubResource( 3 )
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Expand = SubResource( 1 )
 anims/Test = SubResource( 2 )
+
+[node name="Wing" parent="." instance=ExtResource( 1 )]
