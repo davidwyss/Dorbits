@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/LaserIcon.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/TransmissionIcon.tscn" type="PackedScene" id=1]
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/WingCase.tscn" type="PackedScene" id=2]
 
 [sub_resource type="ViewportTexture" id=1]
@@ -25,9 +25,11 @@ albedo_color = Color( 0, 0, 0, 1 )
 
 [node name="Wing" instance=ExtResource( 2 )]
 
-[node name="Icon" parent="Icon" index="0" instance=ExtResource( 1 )]
-position = Vector2( 300, 300 )
-scale = Vector2( 0.5, 0.5 )
+[node name="Icon" parent="." index="0"]
+arvr = true
+
+[node name="Transmission" parent="Icon" index="0" instance=ExtResource( 1 )]
+position = Vector2( 480, 480 )
 
 [node name="PanelLeft" parent="." index="1"]
 material/0 = SubResource( 2 )
