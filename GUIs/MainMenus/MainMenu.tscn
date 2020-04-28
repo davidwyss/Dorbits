@@ -6,6 +6,7 @@
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.tscn" type="PackedScene" id=4]
 [ext_resource path="res://GUIs/MainMenus/Satellite3dProp.gd" type="Script" id=5]
 [ext_resource path="res://Cameras/Camera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Scenes/Labels/Font.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -68,11 +69,6 @@ shader_param/OCTAVES = 4
 shader_param/alpha = 0.25
 
 [sub_resource type="ViewportTexture" id=3]
-
-[sub_resource type="DynamicFont" id=4]
-size = 128
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 64
@@ -143,58 +139,52 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 120.0
 margin_top = 80.0
-margin_right = 904.0
-margin_bottom = 518.0
+margin_right = 1877.0
+margin_bottom = 1272.0
 
 [node name="LeftContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_right = 380.0
-margin_bottom = 438.0
+margin_right = 486.0
+margin_bottom = 1192.0
 
-[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer"]
-show_behind_parent = true
-margin_right = 380.0
-margin_bottom = 128.0
-custom_fonts/font = SubResource( 4 )
-custom_colors/font_color = Color( 0.294118, 0.968627, 0.976471, 1 )
+[node name="Label" parent="MarginContainer/HBoxContainer/LeftContainer" instance=ExtResource( 7 )]
+margin_right = 486.0
+margin_bottom = 155.0
 text = "Dorbits"
 
 [node name="MenuOptions" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftContainer"]
-margin_top = 132.0
-margin_right = 380.0
-margin_bottom = 371.0
+margin_top = 159.0
 size_flags_vertical = 3
 custom_constants/separation = 5
 alignment = 1
 script = ExtResource( 2 )
 
 [node name="Continue" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer/MenuOptions"]
-margin_top = 18.0
-margin_right = 380.0
-margin_bottom = 82.0
+margin_right = 283.0
+margin_bottom = 64.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Continue"
 
 [node name="NewGame" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer/MenuOptions"]
-margin_top = 87.0
-margin_right = 380.0
-margin_bottom = 151.0
+margin_top = 69.0
+margin_right = 283.0
+margin_bottom = 133.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "new game"
 
 [node name="Options" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer/MenuOptions"]
-margin_top = 156.0
-margin_right = 380.0
-margin_bottom = 220.0
+margin_top = 138.0
+margin_right = 283.0
+margin_bottom = 202.0
 custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "options"
 
 [node name="Version" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer"]
-margin_top = 375.0
-margin_right = 380.0
-margin_bottom = 438.0
+margin_top = 1129.0
+margin_right = 486.0
+margin_bottom = 1192.0
 custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 text = "Prototype

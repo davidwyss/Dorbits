@@ -18,7 +18,7 @@ func _process(_delta):
                 get_tree().change_scene("res://Main.tscn")
             elif selected_label_index == 1:
                 # warning-ignore:return_value_discarded
-                get_tree().change_scene("res://GUIs/SatelliteInfos/SatelliteInfo.tscn")
+                get_tree().change_scene("res://GUIs/ObjectInfos/ObjectInfo.tscn")
             elif selected_label_index == 2:    
                 # warning-ignore:return_value_discarded
                 get_tree().change_scene("res://GUIs/other/IWANTTOFREEYOURSKIN.tscn")

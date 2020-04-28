@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.tscn" type="PackedScene" id=1]
-[ext_resource path="res://GUIs/ObjectInfos/PropertyList.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GUIs/ObjectInfos/ObjectPropertyPanels/ObjectPropertyPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GUIs/ObjectInfos/ObjectInfo.gd" type="Script" id=3]
 [ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/ShieldIcon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GUIs/ObjectInfos/ViewportObjectScene.tscn" type="PackedScene" id=7]
@@ -9,7 +9,7 @@
 [ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/LaserIcon.tscn" type="PackedScene" id=11]
 [ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/TelemetryIcon.tscn" type="PackedScene" id=12]
 
-[sub_resource type="ViewportTexture" id=5]
+[sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Object/Viewport")
 
 [sub_resource type="Shader" id=2]
@@ -140,10 +140,13 @@ __meta__ = {
 }
 
 [node name="Satellite" parent="." instance=ExtResource( 1 )]
+direction = Vector3( 0, 0, 0 )
+active = true
+solar_mass = 1.0
 
 [node name="Object" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
-texture = SubResource( 5 )
+texture = SubResource( 1 )
 centered = false
 
 [node name="Viewport" type="Viewport" parent="Object"]
@@ -159,8 +162,9 @@ usage = 3
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="VBoxContainer2" parent="HBoxContainer" instance=ExtResource( 2 )]
-margin_bottom = 600.0
+[node name="Node2D" parent="HBoxContainer" instance=ExtResource( 2 )]
+margin_right = 500.0
+margin_bottom = 100.0
 
 [node name="Lazer" parent="HBoxContainer" instance=ExtResource( 11 )]
 position = Vector2( 539.103, 103.671 )
