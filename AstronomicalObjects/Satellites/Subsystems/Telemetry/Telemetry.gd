@@ -30,7 +30,6 @@ func animation():
         var starting_point = -$Wing.mesh.size.y/2
         var part = whole/(float(amount)*2)
         var point = part*(2*i)+part
-        print(point)
         var y = starting_point + point
         expand.track_insert_key(i, delay + delay_unit, Vector3(0,y,$Wing.mesh.size.y*0.9))
         i += 1

@@ -9,7 +9,7 @@ shader = ExtResource( 3 )
 shader_param/ICON_DISTANCE = 1.132
 shader_param/BRIGHTNESS = 0.5
 shader_param/TIME_MOD = 0.324
-shader_param/SPECIAL_COLOR = Plane( 2, 0, 2, 1 )
+shader_param/SPECIAL_COLOR = Plane( 1.5, 0, 2.5, 1 )
 
 [node name="Icon" instance=ExtResource( 2 )]
 material = SubResource( 1 )
@@ -17,7 +17,7 @@ use_parent_material = true
 texture = ExtResource( 1 )
 
 [node name="HPSprite" parent="." index="0"]
-margin_left = -16.0
-margin_top = -16.0
-margin_right = 16.0
-margin_bottom = 16.0
+margin_left = -480.0
+margin_top = -480.0
+margin_right = 480.0
+margin_bottom = 480.0

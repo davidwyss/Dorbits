@@ -1,12 +1,16 @@
 tool
 extends "res://AstronomicalObjects/AstronomicalObject.gd"
 
+#Subsystems
+var subsystems = []
 var panel = load('res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanel.tscn')
 var laser = load('res://AstronomicalObjects/Satellites/Subsystems/Lasers/Laser.tscn')
 var sensor = load('res://AstronomicalObjects/Satellites/Subsystems/SensorArrays/SensorArray.tscn')
 var telemetry = load('res://AstronomicalObjects/Satellites/Subsystems/Telemetry/Telemetry.tscn')
 
-var subsystems = []
+#Energy
+var energy_history = []
+var energy = 10
 
 func _ready():
     spawn_subsystem(10)
@@ -37,3 +41,4 @@ func rotateAround(obj, point, axis, angle):
     obj.global_translate (-tStart)
     obj.transform = obj.transform.rotated(axis, -rot)
     obj.global_translate (tStart)
+

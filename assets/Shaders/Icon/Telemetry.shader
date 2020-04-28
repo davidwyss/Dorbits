@@ -7,7 +7,6 @@ uniform float FRAMEBORDER = .025;
 uniform float LOOPDELOOPS = 1.;
 uniform float HP_PERCENT = .75;
 uniform float ICON_DISTANCE = 1.1;
-uniform vec4 HP_COLOR = vec4(.5,0.,.25,1.);
 uniform int STATUS; //0-OK 1-ALERT 2-DESTROYED
 
 vec2 rotateUV(vec2 uv, vec2 pivot, float rotation) {

@@ -11,7 +11,6 @@ shader_param/FRAMEBORDER = 0.025
 shader_param/LOOPDELOOPS = 1.0
 shader_param/HP_PERCENT = 0.75
 shader_param/ICON_DISTANCE = 1.05
-shader_param/HP_COLOR = Plane( 0.5, 0.5, 0.5, 1 )
 shader_param/STATUS = null
 
 [node name="Icon" instance=ExtResource( 1 )]
@@ -20,6 +19,6 @@ texture = ExtResource( 2 )
 
 [node name="HPSprite" parent="." index="0"]
 margin_left = -480.0
-margin_top = -490.0
+margin_top = -480.0
 margin_right = 480.0
-margin_bottom = 470.0
+margin_bottom = 480.0
