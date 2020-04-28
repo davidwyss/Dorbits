@@ -2,7 +2,6 @@
 
 [ext_resource path="res://GUIs/ObjectInfos/Camera.gd" type="Script" id=1]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "Rotate"
 length = 20.0
@@ -40,7 +39,7 @@ light_color = Color( 0.00392157, 0, 0, 1 )
 light_energy = 8.0
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 0.98962, 0.130232, -0.0607548, 0, 0.422769, 0.906236, 0.143707, -0.89683, 0.418381, -1.98917, 30, 19.6784 )
+transform = Transform( -0.836796, 0.503382, -0.215356, 0, 0.393334, 0.919394, 0.547515, 0.769346, -0.329141, -7.6251, 30, -14.0923 )
 fov = 90.0
 script = ExtResource( 1 )
 
