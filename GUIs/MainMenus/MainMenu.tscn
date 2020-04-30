@@ -70,11 +70,11 @@ shader_param/alpha = 0.25
 
 [sub_resource type="ViewportTexture" id=3]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=6]
 size = 64
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=7]
 size = 24
 font_data = ExtResource( 1 )
 
@@ -121,71 +121,59 @@ light_energy = 8.0
 light_indirect_energy = 0.0
 light_specular = 0.0
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = 3.0
-margin_right = 1025.0
-margin_bottom = 601.0
-custom_constants/margin_right = 120
-custom_constants/margin_top = 80
-custom_constants/margin_left = 120
-custom_constants/margin_bottom = 80
+[node name="LeftContainer" type="VBoxContainer" parent="."]
+show_behind_parent = true
+margin_left = 121.0
+margin_top = 83.0
+margin_right = 905.0
+margin_bottom = 521.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
-margin_left = 120.0
-margin_top = 80.0
-margin_right = 1877.0
-margin_bottom = 1272.0
-
-[node name="LeftContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_right = 486.0
-margin_bottom = 1192.0
-
-[node name="Label" parent="MarginContainer/HBoxContainer/LeftContainer" instance=ExtResource( 7 )]
-margin_right = 486.0
+[node name="Label" parent="LeftContainer" instance=ExtResource( 7 )]
+margin_right = 784.0
 margin_bottom = 155.0
 text = "Dorbits"
 
-[node name="MenuOptions" type="VBoxContainer" parent="MarginContainer/HBoxContainer/LeftContainer"]
+[node name="MenuOptions" type="VBoxContainer" parent="LeftContainer"]
 margin_top = 159.0
+margin_right = 784.0
+margin_bottom = 371.0
 size_flags_vertical = 3
 custom_constants/separation = 5
 alignment = 1
 script = ExtResource( 2 )
 
-[node name="Continue" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer/MenuOptions"]
-margin_right = 283.0
-margin_bottom = 64.0
-custom_fonts/font = SubResource( 5 )
+[node name="Continue" type="Label" parent="LeftContainer/MenuOptions"]
+margin_top = 5.0
+margin_right = 784.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "Continue"
 
-[node name="NewGame" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer/MenuOptions"]
-margin_top = 69.0
-margin_right = 283.0
-margin_bottom = 133.0
-custom_fonts/font = SubResource( 5 )
+[node name="NewGame" type="Label" parent="LeftContainer/MenuOptions"]
+margin_top = 74.0
+margin_right = 784.0
+margin_bottom = 138.0
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "new game"
 
-[node name="Options" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer/MenuOptions"]
-margin_top = 138.0
-margin_right = 283.0
-margin_bottom = 202.0
-custom_fonts/font = SubResource( 5 )
+[node name="Options" type="Label" parent="LeftContainer/MenuOptions"]
+margin_top = 143.0
+margin_right = 784.0
+margin_bottom = 207.0
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "options"
 
-[node name="Version" type="Label" parent="MarginContainer/HBoxContainer/LeftContainer"]
-margin_top = 1129.0
-margin_right = 486.0
-margin_bottom = 1192.0
-custom_fonts/font = SubResource( 6 )
+[node name="Version" type="Label" parent="LeftContainer"]
+margin_top = 375.0
+margin_right = 784.0
+margin_bottom = 438.0
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 text = "Prototype
 Version: 0.3.2"

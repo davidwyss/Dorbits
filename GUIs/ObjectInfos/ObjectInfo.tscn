@@ -163,8 +163,7 @@ margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="Node2D" parent="HBoxContainer" instance=ExtResource( 2 )]
-margin_right = 500.0
-margin_bottom = 100.0
+margin_bottom = 600.0
 
 [node name="Lazer" parent="HBoxContainer" instance=ExtResource( 11 )]
 position = Vector2( 539.103, 103.671 )
