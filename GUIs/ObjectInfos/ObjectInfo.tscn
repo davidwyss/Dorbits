@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.tscn" type="PackedScene" id=1]
-[ext_resource path="res://GUIs/ObjectInfos/ObjectPropertyPanels/ObjectPropertyPanel.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/SatellitePropertyPanel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GUIs/ObjectInfos/ObjectInfo.gd" type="Script" id=3]
 [ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/ShieldIcon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GUIs/ObjectInfos/ViewportObjectScene.tscn" type="PackedScene" id=7]
@@ -158,11 +158,12 @@ usage = 3
 
 [node name="ViewportObjectScene" parent="Object/Viewport" instance=ExtResource( 7 )]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="Node2D" parent="." instance=ExtResource( 2 )]
 margin_right = 1024.0
 margin_bottom = 600.0
 
-[node name="Node2D" parent="HBoxContainer" instance=ExtResource( 2 )]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 1024.0
 margin_bottom = 600.0
 
 [node name="Lazer" parent="HBoxContainer" instance=ExtResource( 11 )]
@@ -171,7 +172,7 @@ scale = Vector2( 0.25, 0.25 )
 z_index = 1
 
 [node name="Telemetry" parent="HBoxContainer" instance=ExtResource( 12 )]
-position = Vector2( 547.042, 471.259 )
+position = Vector2( 565.419, 471.259 )
 scale = Vector2( 0.25, 0.25 )
 
 [node name="Shield2" parent="HBoxContainer" instance=ExtResource( 5 )]

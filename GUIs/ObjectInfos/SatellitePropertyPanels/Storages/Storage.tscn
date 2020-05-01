@@ -1,0 +1,18 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/Storage.gd" type="Script" id=1]
+[ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/6.png" type="Texture" id=2]
+[ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/2.png" type="Texture" id=3]
+[ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/1.png" type="Texture" id=4]
+[ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/5.png" type="Texture" id=5]
+[ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/3.png" type="Texture" id=6]
+[ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/4.png" type="Texture" id=7]
+[ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/StorageMaterialShard.tscn" type="PackedScene" id=8]
+
+[node name="Control" type="ColorRect"]
+margin_right = 100.0
+margin_bottom = 100.0
+color = Color( 1, 1, 1, 0 )
+script = ExtResource( 1 )
+materials = [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 2 ) ]
+shards = ExtResource( 8 )
