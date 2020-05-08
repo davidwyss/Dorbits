@@ -3,8 +3,6 @@
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanel.gd" type="Script" id=2]
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanelWingCase.tscn" type="PackedScene" id=3]
 
-
-
 [sub_resource type="Animation" id=1]
 length = 18.0
 tracks/0/type = "value"

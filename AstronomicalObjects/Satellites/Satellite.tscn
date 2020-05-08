@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.gd" type="Script" id=1]
 [ext_resource path="res://AstronomicalObjects/AstronomicalObject.tscn" type="PackedScene" id=2]
 [ext_resource path="res://AstronomicalObjects/Satellites/Core.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Materials/Aluminium.tres" type="Material" id=4]
+[ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/Telemetry/Telemetry.tscn" type="PackedScene" id=5]
+[ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/Lasers/Laser.tscn" type="PackedScene" id=6]
+[ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanel.tscn" type="PackedScene" id=7]
+[ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SensorArrays/SensorArray.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 2.0
@@ -11,6 +15,10 @@ mid_height = 2.0
 
 [node name="Satelllite" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+panel = ExtResource( 7 )
+laser = ExtResource( 6 )
+sensor = ExtResource( 8 )
+telemetry = ExtResource( 5 )
 
 [node name="Core" parent="." index="0" instance=ExtResource( 3 )]
 material_override = ExtResource( 4 )

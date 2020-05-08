@@ -6,7 +6,7 @@ export(int) var amount = 10
 
 func _ready():
     var extension = load("res://AstronomicalObjects/Satellites/Subsystems/Telemetry/TelemetryExtension.tscn") 
-    for i in range(amount): 
+    for _i in range(amount): 
         var extension_instance = extension.instance()
         telemetry_extensions.append(extension_instance)
         add_child(extension_instance)
@@ -26,7 +26,6 @@ func animation():
         expand.track_insert_key(i, 0, Vector3(0,0,0))
 #        float y =  $Wing.mesh.size.y * -.5 +  (0.5+i-extension.mesh.bottom_radius*2)*$Wing.mesh.size.y/amount + extension.mesh.bottom_radius
         var whole = $Wing.mesh.size.y
-        var radius_extension = extension.mesh.bottom_radius
         var starting_point = -$Wing.mesh.size.y/2
         var part = whole/(float(amount)*2)
         var point = part*(2*i)+part
