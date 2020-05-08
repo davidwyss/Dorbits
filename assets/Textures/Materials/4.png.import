@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/2.png-58a4065060c6eaed5f3edb81e48c5b52.stex"
+path="res://.import/4.png-032221275056eb6224ea9c88789283cc.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/2.png"
-dest_files=[ "res://.import/2.png-58a4065060c6eaed5f3edb81e48c5b52.stex" ]
+source_file="res://assets/Textures/Materials/4.png"
+dest_files=[ "res://.import/4.png-032221275056eb6224ea9c88789283cc.stex" ]
 
 [params]
 

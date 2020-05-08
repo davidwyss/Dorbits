@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/laser_alt_art_2.png-3c9f791eea9a257ecf90803296e3acd9.stex"
+path="res://.import/telemetry_v2.png.png-152c7f237b800847b30e80f53ed7a910.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Icons/laser_alt_art_2.png"
-dest_files=[ "res://.import/laser_alt_art_2.png-3c9f791eea9a257ecf90803296e3acd9.stex" ]
+source_file="res://assets/Icons/telemetry_v2.png.png"
+dest_files=[ "res://.import/telemetry_v2.png.png-152c7f237b800847b30e80f53ed7a910.stex" ]
 
 [params]
 

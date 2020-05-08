@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GUIs/ObjectInfos/SatellitePropertyPanels/SatellitePropertyPanel.tscn" type="PackedScene" id=2]
-[ext_resource path="res://GUIs/ObjectInfos/ObjectInfo.gd" type="Script" id=3]
 [ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/ShieldIcon.tscn" type="PackedScene" id=5]
 [ext_resource path="res://GUIs/ObjectInfos/ViewportObjectScene.tscn" type="PackedScene" id=7]
 [ext_resource path="res://assets/Icons/energy_shield.png" type="Texture" id=10]
@@ -134,15 +133,11 @@ shader_param/SPAWN_RANDOM = Vector2( 0, 0 )
 [node name="MarginContainer" type="MarginContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Satellite" parent="." instance=ExtResource( 1 )]
-direction = Vector3( 0, 0, 0 )
-active = true
-solar_mass = 1.0
 
 [node name="Object" type="Sprite" parent="."]
 scale = Vector2( 0.25, 0.25 )
@@ -161,6 +156,7 @@ usage = 3
 [node name="Node2D" parent="." instance=ExtResource( 2 )]
 margin_right = 1024.0
 margin_bottom = 600.0
+SatellitePath = NodePath("../Satellite")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 margin_right = 1024.0

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/1.png-c2ea6dd9041f8752a64e96b9336a6335.stex"
+path="res://.import/telemetry_v2.png-8530c7472a291aa79c82d92b1659ac49.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GUIs/ObjectInfos/SatellitePropertyPanels/Storages/1.png"
-dest_files=[ "res://.import/1.png-c2ea6dd9041f8752a64e96b9336a6335.stex" ]
+source_file="res://assets/Icons/telemetry_v2.png"
+dest_files=[ "res://.import/telemetry_v2.png-8530c7472a291aa79c82d92b1659ac49.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

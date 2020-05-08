@@ -1,20 +1,14 @@
-extends Line2D
+extends ColorRect
 
-var p = Vector2(0,0)
-var energy = 11
-var max_energy = 1000
-var size 
+var x = 0    
+onready var satellite = get_parent().satellite
 
-func _ready():
-    size = get_node("../").rect_size
-    
 func graph_point(point):
-    point.y = size.y-point.y
-    add_point(point)
+    point.y = rect_size.y-point.y
+    $EnergyLine.add_point(point)
 
 func _on_Timer_timeout():
-    p.x+=1
-    energy+=1
-    p.y = energy*size.y/max_energy
-    $EnergyInfo.set_text("%skWh/%skWh." % [max_energy,energy]);
-    graph_point(p)
+    if satellite!=null:
+        $EnergyLine/EnergyInfo.set_text("%skWh/%skWh." % [satellite.max_energy,int(satellite.energy)])
+        graph_point(Vector2(x,float(satellite.energy)))
+        x+=1
