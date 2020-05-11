@@ -43,5 +43,4 @@ void fragment() {
     n += noise(unit * 40.0) * 0.0625;
     COLOR.a = 0.4 + 0.7 * smoothstep(-0.1, 0.0, n);
     COLOR.xyz = mix(vec3(0.05, 0.3, 0.5), vec3(0.9, 0.4, 0.1), smoothstep(-0.1, 0.0, n));
-    COLOR.xyz = vec3(1,1,1), vec3(1,1,1);
 }

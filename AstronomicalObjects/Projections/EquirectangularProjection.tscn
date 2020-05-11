@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/Shaders/EquirectangularProjection.shader" type="Shader" id=1]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 1 )
 
@@ -13,6 +13,6 @@ hdr = false
 disable_3d = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-material = SubResource( 2 )
+material = SubResource( 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0

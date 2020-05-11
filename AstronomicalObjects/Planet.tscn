@@ -38,7 +38,6 @@ tracks/0/keys = {
 
 [node name="Planet" instance=ExtResource( 4 )]
 script = ExtResource( 1 )
-solar_mass = null
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="0"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
@@ -47,7 +46,6 @@ mesh = SubResource( 3 )
 material/0 = null
 
 [node name="EquirectangularProjection" parent="." index="1" instance=ExtResource( 2 )]
-size = Vector2( 1536, 768 )
 own_world = true
 
 [node name="ColorRect" parent="EquirectangularProjection" index="0"]

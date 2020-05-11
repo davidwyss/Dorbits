@@ -1,14 +1,14 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://assets/Backgrounds/Space-Background-3.jpg" type="Texture" id=2]
+[ext_resource path="res://assets/Backgrounds/Space-Background-2.jpg" type="Texture" id=2]
 [ext_resource path="res://assets/Scenes/Labels/Label.gd" type="Script" id=3]
 
 [sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0, 0, 0, 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 128
+size = 48
 font_data = ExtResource( 1 )
 
 [sub_resource type="Shader" id=3]
@@ -37,7 +37,7 @@ void fragment(){
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 3 )
-shader_param/CORRUPT_IT = true
+shader_param/CORRUPT_IT = false
 shader_param/CORRUPT_IT_BRIGHTNESS = 1.0
 shader_param/BG_MOVE_SPEED = 0.075
 shader_param/EDGE_DISTANCE = 0.861
@@ -45,8 +45,8 @@ shader_param/ROTATION_RANGE = -0.053
 shader_param/TEX = ExtResource( 2 )
 
 [node name="Label" type="Label"]
-margin_right = 1076.0
-margin_bottom = 313.0
+margin_right = 656.0
+margin_bottom = 302.0
 custom_styles/normal = SubResource( 1 )
 custom_fonts/font = SubResource( 2 )
 text = "THAT SENTENCE HAD
@@ -61,9 +61,10 @@ __meta__ = {
 
 [node name="FontShader" type="ColorRect" parent="."]
 material = SubResource( 4 )
-margin_right = 1757.0
-margin_bottom = 787.0
+margin_right = 656.0
+margin_bottom = 302.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+[connection signal="item_rect_changed" from="." to="." method="_on_Label_item_rect_changed"]
 [connection signal="resized" from="." to="." method="_on_Label_resized"]

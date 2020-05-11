@@ -1,6 +1,4 @@
-tool
 extends "res://AstronomicalObjects/AstronomicalObject.gd"
-
 #Subsystems
 var subsystems = []
 export(PackedScene) var panel
@@ -24,7 +22,6 @@ var TEMP = 1
 
 func _process(delta):
     energy = sin(TEMP)*max_energy/5 + max_energy/2
-    print(sin(TEMP)*max_energy/5)
     TEMP += .1
 
 func _ready():

@@ -14,34 +14,37 @@ spread = 180.0
 gravity = Vector3( 0, -0.2, 0 )
 initial_velocity = 1.0
 
-[sub_resource type="ShaderMaterial" id=5]
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
 
-[sub_resource type="SphereMesh" id=6]
-material = SubResource( 5 )
+[sub_resource type="SphereMesh" id=4]
+material = SubResource( 3 )
 radius = 0.1
 height = 0.2
 
-[sub_resource type="SphereMesh" id=7]
+[sub_resource type="SphereMesh" id=5]
 
-[sub_resource type="OpenSimplexNoise" id=8]
+[sub_resource type="OpenSimplexNoise" id=6]
 octaves = 6
 period = 8.0
 persistence = 0.0
 lacunarity = 0.1
 
-[sub_resource type="NoiseTexture" id=9]
+[sub_resource type="NoiseTexture" id=7]
 width = 1
 height = 500
-noise = SubResource( 8 )
+noise = SubResource( 6 )
 
-[sub_resource type="ShaderMaterial" id=10]
+[sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 1 )
-shader_param/noise = SubResource( 9 )
+shader_param/noise = SubResource( 7 )
 
 [node name="AstroObj" instance=ExtResource( 3 )]
-transform = Transform( -0.820096, 0, -0.576225, 0, 1, 0, 0.576225, 0, -0.820096, 0, 0, 0 )
+transform = Transform( -0.697532, 0, -0.719756, 0, 1, 0, 0.719756, 0, -0.697532, 0, 0, 0 )
 script = ExtResource( 4 )
+direction = Vector3( 0, 0, 0 )
+active = true
+solar_mass = 1.0
 
 [node name="CollisionShape" parent="." index="0"]
 shape = SubResource( 1 )
@@ -58,9 +61,9 @@ explosiveness = 0.81
 randomness = 1.0
 visibility_aabb = AABB( -2, -2, -2, 4, 4, 4 )
 process_material = SubResource( 2 )
-draw_pass_1 = SubResource( 6 )
+draw_pass_1 = SubResource( 4 )
 
 [node name="MeshInstance" type="MeshInstance" parent="." index="3"]
 transform = Transform( -0.974676, 0, -0.223337, 0, 1, 0, 0.223337, 0, -0.974676, 0, 0, 0 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 10 )
+mesh = SubResource( 5 )
+material/0 = SubResource( 8 )
