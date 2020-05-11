@@ -18,9 +18,3 @@ shader_param/STATUS = null
 [node name="Icon" instance=ExtResource( 3 )]
 material = SubResource( 1 )
 texture = ExtResource( 1 )
-
-[node name="HPSprite" parent="." index="0"]
-margin_left = -480.0
-margin_top = -480.0
-margin_right = 480.0
-margin_bottom = 480.0

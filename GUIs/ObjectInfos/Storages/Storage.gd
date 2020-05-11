@@ -2,7 +2,7 @@ extends Control
 
 export(PackedScene) var shardClass
 export(float) var radius_modifier
-onready var satellite = get_parent().satellite
+var satellite 
 
 
 func _ready():

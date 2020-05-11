@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://old/ViewportObjectScene.tscn" type="PackedScene" id=1]
+
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("Satellite2/Viewport")
+
+[node name="2DSatScene" type="Sprite"]
+scale = Vector2( 0.25, 0.25 )
+texture = SubResource( 1 )
+centered = false
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 4096, 2400 )
+transparent_bg = true
+msaa = 2
+hdr = false
+usage = 3
+
+[node name="ViewportObjectScene" type="Node" parent="Viewport" instance=ExtResource( 1 )]

@@ -4,23 +4,13 @@
 [ext_resource path="res://assets/Icons/telemetry_v2.png" type="Texture" id=2]
 [ext_resource path="res://assets/Shaders/Icon/Telemetry.shader" type="Shader" id=3]
 
-
-
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 3 )
-shader_param/ROTATIONAL_SPEED = 3.0
-shader_param/FRAMEBORDER = 0.025
-shader_param/LOOPDELOOPS = 1.0
-shader_param/HP_PERCENT = 0.75
 shader_param/ICON_DISTANCE = 1.05
-shader_param/STATUS = null
+shader_param/BRIGHTNESS = 0.5
+shader_param/TIME_MOD = 0.324
+shader_param/SPECIAL_COLOR = Plane( 1.5, 0, 2.5, 1 )
 
 [node name="Icon" instance=ExtResource( 1 )]
 material = SubResource( 1 )
 texture = ExtResource( 2 )
-
-[node name="HPSprite" parent="." index="0"]
-margin_left = -480.0
-margin_top = -480.0
-margin_right = 480.0
-margin_bottom = 480.0
