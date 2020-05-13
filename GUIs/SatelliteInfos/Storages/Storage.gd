@@ -2,24 +2,13 @@ extends Control
 
 export(PackedScene) var shardClass
 export(float) var radius_modifier
-var satellite 
+var satellite setget  set_satellite
 
 
-func _ready():
+func set_satellite(_satellite):
+    satellite = _satellite
     satellite.connect("material_array_changed", self, "set_shards")
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
-    satellite.test_materials()
+    set_shards()
 
 func set_shards():
     if satellite != null:
@@ -45,7 +34,6 @@ func set_shard_shape():
     var space_left = 0 
     for shard in get_children():
         shard.angle_start = 2 * PI * space_left
-        print(shard.stored_material.amount)
         space_left += float(shard.stored_material.amount) / float(satellite.total_storage_space)
         shard.angle_end = 2 * PI * space_left
 

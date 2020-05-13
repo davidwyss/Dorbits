@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.gd" type="Script" id=1]
 [ext_resource path="res://AstronomicalObjects/AstronomicalObject.tscn" type="PackedScene" id=2]
@@ -13,6 +13,10 @@
 radius = 2.0
 mid_height = 2.0
 
+[sub_resource type="CapsuleShape" id=2]
+radius = 2.0
+height = 2.0
+
 [node name="Satelllite" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
 panel = ExtResource( 7 )
@@ -24,3 +28,7 @@ telemetry = ExtResource( 5 )
 material_override = ExtResource( 4 )
 mesh = SubResource( 1 )
 material/0 = null
+
+[node name="CollisionShape" parent="." index="1"]
+transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
+shape = SubResource( 2 )

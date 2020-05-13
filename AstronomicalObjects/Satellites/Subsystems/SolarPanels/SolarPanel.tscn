@@ -3,10 +3,10 @@
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanel.gd" type="Script" id=2]
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanelWingCase.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="Animation" id=3]
 length = 18.0
 tracks/0/type = "value"
-tracks/0/path = NodePath("./mesh:translation")
+tracks/0/path = NodePath("../mesh:translation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -18,7 +18,7 @@ tracks/0/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 4 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("./mesh:rotation_degrees")
+tracks/1/path = NodePath("../mesh:rotation_degrees")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -30,7 +30,7 @@ tracks/1/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("./mesh2:translation")
+tracks/2/path = NodePath("../mesh2:translation")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -42,7 +42,7 @@ tracks/2/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 8 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("./mesh2:rotation_degrees")
+tracks/3/path = NodePath("../mesh2:rotation_degrees")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -54,7 +54,7 @@ tracks/3/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("./mesh3:translation")
+tracks/4/path = NodePath("../mesh3:translation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -66,7 +66,7 @@ tracks/4/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 12 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("./mesh3:rotation_degrees")
+tracks/5/path = NodePath("../mesh3:rotation_degrees")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -78,7 +78,7 @@ tracks/5/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ) ]
 }
 tracks/6/type = "value"
-tracks/6/path = NodePath("./mesh4:translation")
+tracks/6/path = NodePath("../mesh4:translation")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
@@ -90,7 +90,7 @@ tracks/6/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 16 ) ]
 }
 tracks/7/type = "value"
-tracks/7/path = NodePath("./mesh4:rotation_degrees")
+tracks/7/path = NodePath("../mesh4:rotation_degrees")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
@@ -102,7 +102,7 @@ tracks/7/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 90 ) ]
 }
 tracks/8/type = "value"
-tracks/8/path = NodePath("./mesh5:translation")
+tracks/8/path = NodePath("../mesh5:translation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
@@ -114,7 +114,7 @@ tracks/8/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 20 ) ]
 }
 tracks/9/type = "value"
-tracks/9/path = NodePath("./mesh5:rotation_degrees")
+tracks/9/path = NodePath("../mesh5:rotation_degrees")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
@@ -189,11 +189,11 @@ tracks/4/keys = {
 "values": [ Vector3( 0, 0, 0 ), Vector3( 0, 0, 8 ) ]
 }
 
-[node name="Node2D" type="Spatial"]
-
-[node name="Wing" parent="." instance=ExtResource( 3 )]
+[node name="Solar Panel" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Wing"]
-anims/Expand = SubResource( 1 )
+[node name="WingCase" parent="." instance=ExtResource( 3 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="WingCase"]
+anims/Expand = SubResource( 3 )
 anims/Test = SubResource( 2 )

@@ -5,6 +5,8 @@
 [ext_resource path="res://assets/Shaders/EquirectangularProjection.shader" type="Shader" id=3]
 [ext_resource path="res://AstronomicalObjects/AstronomicalObject.tscn" type="PackedScene" id=4]
 
+[sub_resource type="SphereShape" id=5]
+
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("EquirectangularProjection")
 
@@ -17,8 +19,6 @@ albedo_texture = SubResource( 1 )
 [sub_resource type="ShaderMaterial" id=4]
 resource_local_to_scene = true
 shader = ExtResource( 3 )
-
-[sub_resource type="SphereShape" id=5]
 
 [sub_resource type="Animation" id=6]
 resource_name = "Rotation"
@@ -39,20 +39,20 @@ tracks/0/keys = {
 [node name="Planet" instance=ExtResource( 4 )]
 script = ExtResource( 1 )
 
-[node name="MeshInstance" type="MeshInstance" parent="." index="0"]
+[node name="CollisionShape" parent="." index="0"]
+shape = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="1"]
 transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
 material_override = SubResource( 2 )
 mesh = SubResource( 3 )
 material/0 = null
 
-[node name="EquirectangularProjection" parent="." index="1" instance=ExtResource( 2 )]
+[node name="EquirectangularProjection" parent="." index="2" instance=ExtResource( 2 )]
 own_world = true
 
 [node name="ColorRect" parent="EquirectangularProjection" index="0"]
 material = SubResource( 4 )
-
-[node name="CollisionShape" parent="." index="2"]
-shape = SubResource( 5 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
 anims/Rotation = SubResource( 6 )

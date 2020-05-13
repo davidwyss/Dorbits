@@ -1,14 +1,14 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://GUIs/ObjectInfos/ObjectInfo.gd" type="Script" id=1]
-[ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/TransmissionIcon.tscn" type="PackedScene" id=3]
-[ext_resource path="res://GUIs/ObjectInfos/GalacticCoordinates.gd" type="Script" id=4]
-[ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/ShieldIcon.tscn" type="PackedScene" id=5]
-[ext_resource path="res://GUIs/ObjectInfos/EnergyGraphs/EnergyGraph.tscn" type="PackedScene" id=6]
-[ext_resource path="res://GUIs/ObjectInfos/Storages/Storage.tscn" type="PackedScene" id=7]
-[ext_resource path="res://GUIs/ObjectInfos/Storages/StorageMaterialShard.tscn" type="PackedScene" id=8]
-[ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/LaserIcon.tscn" type="PackedScene" id=11]
-[ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/TelemetryIcon.tscn" type="PackedScene" id=12]
+[ext_resource path="res://GUIs/SatelliteInfos/SatelliteInfo.gd" type="Script" id=1]
+[ext_resource path="res://GUIs/SatelliteInfos/SubmoduleIcons/TransmissionIcon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUIs/SatelliteInfos/GalacticCoordinates.gd" type="Script" id=4]
+[ext_resource path="res://GUIs/SatelliteInfos/SubmoduleIcons/ShieldIcon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://GUIs/SatelliteInfos/EnergyGraphs/EnergyGraph.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GUIs/SatelliteInfos/Storages/Storage.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GUIs/SatelliteInfos/Storages/StorageMaterialShard.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GUIs/SatelliteInfos/SubmoduleIcons/LaserIcon.tscn" type="PackedScene" id=11]
+[ext_resource path="res://GUIs/SatelliteInfos/SubmoduleIcons/TelemetryIcon.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
@@ -123,15 +123,19 @@ font_data = SubResource( 3 )
 [node name="SatelliteInfo" type="Node2D"]
 script = ExtResource( 1 )
 
-[node name="SatelliteInfoList" type="VBoxContainer" parent="."]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="SatelliteInfoList" type="HBoxContainer" parent="."]
+margin_top = 333.0
+margin_right = 1024.0
+margin_bottom = 397.0
+rect_min_size = Vector2( 0, 64 )
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="HBOX" type="HBoxContainer" parent="SatelliteInfoList"]
-margin_right = 268.0
+margin_left = 177.0
+margin_right = 445.0
 margin_bottom = 64.0
 __meta__ = {
 "_edit_use_anchors_": false
@@ -162,23 +166,24 @@ margin_bottom = 64.0
 rect_min_size = Vector2( 64, 64 )
 
 [node name="EnergyBar" parent="SatelliteInfoList" instance=ExtResource( 6 )]
-margin_top = 68.0
-margin_right = 268.0
-margin_bottom = 132.0
-rect_min_size = Vector2( 0, 64 )
+margin_left = 449.0
+margin_right = 699.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 250, 64 )
 
 [node name="MaterialPie" parent="SatelliteInfoList" instance=ExtResource( 7 )]
-margin_top = 136.0
-margin_right = 268.0
-margin_bottom = 336.0
-rect_min_size = Vector2( 200, 200 )
+margin_left = 703.0
+margin_right = 767.0
+margin_bottom = 64.0
+rect_min_size = Vector2( 64, 64 )
 shardClass = ExtResource( 8 )
 radius_modifier = 1.0
 
 [node name="GC" type="Label" parent="SatelliteInfoList"]
-margin_top = 340.0
-margin_right = 268.0
-margin_bottom = 380.0
+margin_left = 771.0
+margin_top = 12.0
+margin_right = 847.0
+margin_bottom = 52.0
 custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0.00392157, 1, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )

@@ -1,4 +1,7 @@
 extends "res://AstronomicalObjects/AstronomicalObject.gd"
+
+#Subsystems are connected through cabels and can be detached. 
+
 #Subsystems
 var subsystems = []
 export(PackedScene) var panel
@@ -14,18 +17,23 @@ var materialDB = load("res://AstronomicalObjects/Satellites/Materials/MaterialDB
 signal material_array_changed
 
 #Energy
-var max_energy = 200
-var energy = 20
-
-#TODO DELETE
-var TEMP = 1
-
-func _process(delta):
-    energy = sin(TEMP)*max_energy/5 + max_energy/2
-    TEMP += .1
+var max_energy = 200000
+var energy = 120000
 
 func _ready():
     spawn_subsystem(10)
+    test_materials()
+    test_materials()
+    test_materials()
+    test_materials()
+    test_materials()
+    test_materials()
+    test_materials()
+    test_materials()
+    test_materials()
+    
+func _process(delta):
+    energy -= 20
         
 func test_materials():
     for m in materialDB.new().materials:
@@ -39,7 +47,11 @@ func spawn_subsystem(amount):
     while(amount > 0):
         var rotation =  float(amount) / count * 2.0 * PI
         if amount%5 == 0 || amount%5 == 3:
-            subsystems.append(panel.instance())
+            var p =  panel.instance()
+            p.connect("energy_received", self, "receive_solar_energy")
+            subsystems.append(p)
+#            print(subsystems.back().amount)
+            print(p.amount)
         elif amount%5 == 1:
             subsystems.append(sensor.instance())
         elif amount%5 == 2:
@@ -66,7 +78,6 @@ func add_material(material_added):
     for m in materials:
         if material_added.name == m.name:      
             m.amount += material_added.amount
-            print(String(m.name) + String(m.amount))  
             alreadyExists = true
     if !alreadyExists:
         materials.append(material_added)
@@ -79,3 +90,7 @@ func remove_material(material_removed):
             if 0 >= m.amount:
                 materials.erase(m)
                 emit_signal("material_array_changed")
+
+func receive_solar_energy(_energy):
+    energy +=_energy
+    

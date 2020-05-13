@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://AstronomicalObjects/Planet.tscn" type="PackedScene" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://Space.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AstronomicalObjects/Star.tscn" type="PackedScene" id=5]
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.tscn" type="PackedScene" id=6]
-[ext_resource path="res://GUIs/ObjectInfos/ObjectInfo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GUIs/SatelliteInfos/SatelliteInfo.tscn" type="PackedScene" id=7]
+[ext_resource path="res://GUIs/PlanetInfos/PlanetInfo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://GUIs/StarInfos/StarInfo.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ParticlesMaterial" id=1]
 direction = Vector3( 0, 0, 0 )
@@ -19,20 +21,28 @@ height = 0.1
 [node name="Main" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.278612 )
 script = ExtResource( 1 )
+SatelliteInfos = ExtResource( 7 )
+PlanetInfos = ExtResource( 8 )
+StarInfos = ExtResource( 9 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, -6.5254 )
+
+[node name="RayCast" type="RayCast" parent="Camera"]
+enabled = true
+exclude_parent = false
+cast_to = Vector3( 0, 0, -200 )
 
 [node name="WorldEnvironment" parent="." instance=ExtResource( 4 )]
 
 [node name="AstronomicalObjects" type="Spatial" parent="."]
 
-[node name="Alpha Dolar" parent="AstronomicalObjects" instance=ExtResource( 2 )]
+[node name="Planet" parent="AstronomicalObjects" instance=ExtResource( 2 )]
 transform = Transform( -0.479982, 0, -0.877095, 0, 1, 0, 0.877095, 0, -0.479982, 0, 0, 0 )
 direction = Vector3( -0.562, 0, -0.953 )
 solar_mass = 0.001
 
-[node name="Particles" type="Particles" parent="AstronomicalObjects/Alpha Dolar"]
+[node name="Particles" type="Particles" parent="AstronomicalObjects/Planet"]
 amount = 100
 lifetime = 200.0
 visibility_aabb = AABB( -5000, -5000, -5000, 10000, 10000, 10000 )
@@ -44,13 +54,10 @@ draw_pass_1 = SubResource( 2 )
 transform = Transform( -0.156972, 0.102915, -3.00354, 0.516828, 2.95442, 0.0747923, 2.96088, -0.510678, -0.172352, -3.41014, 10.708, 1.60726 )
 direction = Vector3( -0.00621722, -0.023344, -0.00400059 )
 
-[node name="Satelllite" parent="AstronomicalObjects" instance=ExtResource( 6 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 7.8259, 6.58137, 15.8443 )
-direction = Vector3( -0.106257, 0.132749, 0.229094 )
+[node name="Satellite" parent="AstronomicalObjects" instance=ExtResource( 6 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -20.2206, 9.29108, 1.58432 )
+direction = Vector3( 0, 0.3, 0 )
 solar_mass = 0.001
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
-
-[node name="MarginContainer" parent="CanvasLayer" instance=ExtResource( 7 )]
-satellitePath = NodePath("../../AstronomicalObjects/Satelllite")

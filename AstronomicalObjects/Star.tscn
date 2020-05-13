@@ -39,12 +39,9 @@ noise = SubResource( 6 )
 shader = ExtResource( 1 )
 shader_param/noise = SubResource( 7 )
 
-[node name="AstroObj" instance=ExtResource( 3 )]
+[node name="Star" instance=ExtResource( 3 )]
 transform = Transform( -0.697532, 0, -0.719756, 0, 1, 0, 0.719756, 0, -0.697532, 0, 0, 0 )
 script = ExtResource( 4 )
-direction = Vector3( 0, 0, 0 )
-active = true
-solar_mass = 1.0
 
 [node name="CollisionShape" parent="." index="0"]
 shape = SubResource( 1 )

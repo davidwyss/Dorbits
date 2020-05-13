@@ -2,7 +2,8 @@
 
 [ext_resource path="res://assets/Icons/energy_shield.png" type="Texture" id=1]
 [ext_resource path="res://assets/Shaders/Icon/EnergyShield.shader" type="Shader" id=2]
-[ext_resource path="res://GUIs/ObjectInfos/SubmoduleIcons/SubmoduleIcon.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUIs/SatelliteInfos/SubmoduleIcons/SubmoduleIcon.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
