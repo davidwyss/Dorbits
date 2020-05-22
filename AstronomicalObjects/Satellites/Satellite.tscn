@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.gd" type="Script" id=1]
 [ext_resource path="res://AstronomicalObjects/AstronomicalObject.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/Lasers/Laser.tscn" type="PackedScene" id=6]
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanel.tscn" type="PackedScene" id=7]
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SensorArrays/SensorArray.tscn" type="PackedScene" id=8]
+[ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/Thrusters/Thruster.tscn" type="PackedScene" id=9]
+[ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/ShieldGenerators/ShieldGenerator.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CapsuleMesh" id=1]
 radius = 2.0
@@ -19,10 +21,12 @@ height = 2.0
 
 [node name="Satelllite" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
-panel = ExtResource( 7 )
-laser = ExtResource( 6 )
-sensor = ExtResource( 8 )
-telemetry = ExtResource( 5 )
+panel_scene = ExtResource( 7 )
+laser_scene = ExtResource( 6 )
+sensor_scene = ExtResource( 8 )
+telemetry_scene = ExtResource( 5 )
+thruster_scene = ExtResource( 9 )
+shield_scene = ExtResource( 10 )
 
 [node name="Core" parent="." index="0" instance=ExtResource( 3 )]
 material_override = ExtResource( 4 )

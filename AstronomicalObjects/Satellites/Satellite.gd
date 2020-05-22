@@ -3,11 +3,20 @@ extends "res://AstronomicalObjects/AstronomicalObject.gd"
 #Subsystems are connected through cabels and can be detached. 
 
 #Subsystems
-var subsystems = []
-export(PackedScene) var panel
-export(PackedScene) var laser
-export(PackedScene) var sensor
-export(PackedScene) var telemetry
+export(PackedScene) var panel_scene
+export(PackedScene) var laser_scene
+export(PackedScene) var sensor_scene
+export(PackedScene) var telemetry_scene
+export(PackedScene) var thruster_scene
+export(PackedScene) var shield_scene
+
+var panels = []
+var lasers = []
+var sensors = []
+var telemetry
+var thrusters = []
+var shields = []
+
 
 #Storage
 var total_storage_space = 1000
@@ -17,13 +26,14 @@ var materialDB = load("res://AstronomicalObjects/Satellites/Materials/MaterialDB
 signal material_array_changed
 
 #Energy
-var max_energy = 200000
-var energy = 120000
+var max_energy = 100000
+var energy = 70000 setget set_energy
+
+func set_energy(_energy):
+    energy = max(min(_energy,max_energy),0)
 
 func _ready():
-    spawn_subsystem(10)
-    test_materials()
-    test_materials()
+    spawn_subsystems()
     test_materials()
     test_materials()
     test_materials()
@@ -32,8 +42,8 @@ func _ready():
     test_materials()
     test_materials()
     
-func _process(delta):
-    energy -= 20
+func _process(_delta):
+    set_energy(energy - 20)
         
 func test_materials():
     for m in materialDB.new().materials:
@@ -41,30 +51,26 @@ func test_materials():
         add_material(m)
     
 #Subsystems
-func spawn_subsystem(amount):
-    var count = amount
-
-    while(amount > 0):
-        var rotation =  float(amount) / count * 2.0 * PI
-        if amount%5 == 0 || amount%5 == 3:
-            var p =  panel.instance()
-            p.connect("energy_received", self, "receive_solar_energy")
-            subsystems.append(p)
-#            print(subsystems.back().amount)
-            print(p.amount)
-        elif amount%5 == 1:
-            subsystems.append(sensor.instance())
-        elif amount%5 == 2:
-            subsystems.append(telemetry.instance())
-        else:
-            subsystems.append(laser.instance())
-
-        add_child(subsystems[-1])
-        subsystems[-1].translation.z += 3
-        subsystems[-1].translation.y += 1
-        rotateAround(subsystems[-1],Vector3(0,0,0),Vector3(0,1,0),rotation)
-        amount -= 1
+func spawn_subsystems():
+        panels.append(panel_scene.instance())
+        sensors.append(sensor_scene.instance())
+        telemetry = telemetry_scene.instance()
+        shields.append(shield_scene.instance())
+        lasers.append(laser_scene.instance())
+        var subsystems = get_subsystems() 
+        for i in range(subsystems.size()):
+            add_child(subsystems[i])
+            var rotation =  float(i) / float(subsystems.size()) * 2.0 * PI
+            subsystems[i].translation.z += 3
+            subsystems[i].translation.y += 1
+            rotateAround(subsystems[i],Vector3(0,0,0),Vector3(0,1,0),rotation)
+        for panel in panels: 
+            panel.connect("energy_received", self, "receive_solar_energy")
         
+        
+func get_subsystems():
+    return panels + sensors + shields + lasers + [telemetry] 
+
 func rotateAround(obj, point, axis, angle):
     var rot = angle + obj.rotation.y 
     var tStart = point
@@ -92,5 +98,5 @@ func remove_material(material_removed):
                 emit_signal("material_array_changed")
 
 func receive_solar_energy(_energy):
-    energy +=_energy
+    set_energy(_energy + energy)
     

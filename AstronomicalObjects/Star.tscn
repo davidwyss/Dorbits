@@ -16,6 +16,7 @@ initial_velocity = 1.0
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
+shader_param/size = null
 
 [sub_resource type="SphereMesh" id=4]
 material = SubResource( 3 )

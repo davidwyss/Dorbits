@@ -9,7 +9,6 @@ void fragment() {
     ALBEDO.r = .294 * height;
     ALBEDO.g = .968 * height;
     ALBEDO.b = .976 * height;
-	ALBEDO.a = .2;
     ALBEDO *= .4; 
     
     

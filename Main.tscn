@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://AstronomicalObjects/Planet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Cameras/Camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Space.tscn" type="PackedScene" id=4]
 [ext_resource path="res://AstronomicalObjects/Star.tscn" type="PackedScene" id=5]
 [ext_resource path="res://AstronomicalObjects/Satellites/Satellite.tscn" type="PackedScene" id=6]
 [ext_resource path="res://GUIs/SatelliteInfos/SatelliteInfo.tscn" type="PackedScene" id=7]
@@ -26,14 +25,12 @@ PlanetInfos = ExtResource( 8 )
 StarInfos = ExtResource( 9 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
-transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 12, 0, -6.5254 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.48014, 10.1471, -2.70166 )
 
 [node name="RayCast" type="RayCast" parent="Camera"]
 enabled = true
 exclude_parent = false
 cast_to = Vector3( 0, 0, -200 )
-
-[node name="WorldEnvironment" parent="." instance=ExtResource( 4 )]
 
 [node name="AstronomicalObjects" type="Spatial" parent="."]
 

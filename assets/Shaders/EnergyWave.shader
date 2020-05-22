@@ -33,8 +33,13 @@ void fragment()
     COLOR = vec4(cbuff[0]*r,cbuff[1]*g,cbuff[2]*b,1.0);
     
     if (UV.x < .5){
-        COLOR.a =  UV.x * 2.;
+        COLOR.rgb *=  vec3(UV.x * 2.);
     } else if(UV.x > .5){
-        COLOR.a =  (1. - UV.x) * 2.;
+        COLOR.rgb *=  vec3((1. - UV.x) * 2.);
+    }
+    if (COLOR.r + COLOR.b + COLOR.g < 0.1){
+        COLOR.rgba = vec4(.0);
+    } else{
+        COLOR.a = 0.7   
     }
 }

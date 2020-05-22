@@ -22,12 +22,12 @@ export (float, 0.0, 1.0) var acceleration = 1.0
 export (float, 0.0, 0.0, 1.0) var deceleration = 0.1
 export var max_speed = Vector3(10.0, 10.0, 10.0)
 export var local = true
-export var forward_action = "ui_up"
-export var backward_action = "ui_down"
-export var left_action = "ui_left"
-export var right_action = "ui_right"
-export var up_action = "ui_page_up"
-export var down_action = "ui_page_down"
+export var forward_action = "forward"
+export var backward_action = "backward"
+export var left_action = "move_left"
+export var right_action = "move_right"
+export var up_action = "move_up"
+export var down_action = "move_down"
 
 # Gui settings
 export var gui_action = "ui_cancel"

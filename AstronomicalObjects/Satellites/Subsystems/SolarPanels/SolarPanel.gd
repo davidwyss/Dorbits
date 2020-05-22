@@ -8,23 +8,24 @@ const ASTRONOMICAL_UNIT = 149597900000.0
 signal energy_received(amount)
 
 func _ready():
-    var panel = load("res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanelExtension.tscn") 
+    var panel_extension = load("res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanelExtension.tscn") 
     for i in range(amount): 
-        var panel_instance = panel.instance()
-        solar_panel_extensions.append(panel_instance)
+        var panel_extension_instance = panel_extension.instance()
+        solar_panel_extensions.append(panel_extension_instance)
         solar_panel_extensions[i].scale.x *= 0.25 + 1.5*i/amount
         solar_panel_extensions[i].scale.y *= 0.75*(1 + i/amount)
-        add_child(panel_instance)
+        add_child(panel_extension_instance)
     animation()
     
 func solar_panel_area():
     return 1
 
 func receive_solar_energy(solar_distance, total_solar_luminosity):
-    if  solar_panel_extensions.back().rotation.z > 0: # check if fully expanded
-        var solar_sphere = pow(solar_distance * ASTRONOMICAL_UNIT,2) * 4 * PI
-        var e = total_solar_luminosity * solar_panel_area() * solar_cell_efficiency / solar_sphere
-        emit_signal("energy_received", e)
+    if solar_panel_extensions.size() != 0:
+        if  solar_panel_extensions.back().rotation.z > 0: # check if fully expanded
+            var solar_sphere = pow(solar_distance * ASTRONOMICAL_UNIT,2) * 4 * PI
+            var e = total_solar_luminosity * solar_panel_area() * solar_cell_efficiency / solar_sphere
+            emit_signal("energy_received", e)
 
 
 func animation():

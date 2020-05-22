@@ -1,15 +1,12 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://assets/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://GUIs/MainMenus/MenuMenu.gd" type="Script" id=2]
+[ext_resource path="res://GUIs/MainMenus/MainMenu.gd" type="Script" id=2]
 [ext_resource path="res://assets/Fonts/run.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://AstronomicalObjects/Satellites/Satellite.tscn" type="PackedScene" id=4]
-[ext_resource path="res://GUIs/MainMenus/Satellite3dProp.gd" type="Script" id=5]
-[ext_resource path="res://Cameras/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/Backgrounds/Space-Background-2.jpg" type="Texture" id=7]
 [ext_resource path="res://assets/Scenes/Labels/Label.gd" type="Script" id=8]
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=1]
 code = "shader_type canvas_item;
 
 // Gonkee's fog shader for Godot 3 - full tutorial https://youtu.be/QEaTsz_0o44
@@ -63,22 +60,20 @@ void fragment() {
     // orginal :COLOR.a = COLOR.a * alpha * UV.y;
 }"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
 shader_param/color = Vector3( 0.294, 0.019, 0.976 )
 shader_param/OCTAVES = 4
 shader_param/alpha = 0.25
 
-[sub_resource type="ViewportTexture" id=7]
-
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 0, 1 )
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 128
 font_data = ExtResource( 1 )
 
-[sub_resource type="Shader" id=3]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 render_mode unshaded;
 
@@ -102,8 +97,8 @@ void fragment(){
     COLOR = c*o;    
 }"
 
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 shader_param/CORRUPT_IT = false
 shader_param/CORRUPT_IT_BRIGHTNESS = 1.0
 shader_param/BG_MOVE_SPEED = 0.075
@@ -111,18 +106,19 @@ shader_param/EDGE_DISTANCE = 0.861
 shader_param/ROTATION_RANGE = -0.053
 shader_param/TEX = ExtResource( 7 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=7]
 size = 64
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=9]
+[sub_resource type="DynamicFont" id=8]
 size = 24
 font_data = ExtResource( 1 )
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
 
 [node name="TextureRect" type="ColorRect" parent="."]
-material = SubResource( 6 )
+material = SubResource( 2 )
 margin_left = 1.81445
 margin_top = -0.049988
 margin_right = 1281.81
@@ -131,33 +127,6 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[node name="Viewport" type="Sprite" parent="."]
-position = Vector2( 886.165, 290.814 )
-scale = Vector2( 0.1, 0.1 )
-texture = SubResource( 7 )
-script = ExtResource( 5 )
-
-[node name="Viewport" type="Viewport" parent="Viewport"]
-size = Vector2( 4096, 4096 )
-own_world = true
-transparent_bg = true
-msaa = 2
-hdr = false
-usage = 3
-
-[node name="Satelllite" parent="Viewport/Viewport" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 0.5, -0.866025, 0, 0.866025, 0.5, 0, 0, 0 )
-
-[node name="Camera" parent="Viewport/Viewport" instance=ExtResource( 6 )]
-transform = Transform( 1, 0, 0, 0, -1.62921e-07, 1, 0, -1, -1.62921e-07, 0, 40, 0 )
-
-[node name="DirectionalLight" type="DirectionalLight" parent="Viewport/Viewport"]
-transform = Transform( -0.440239, 0.89417, -0.0815467, 0.0456532, 0.112996, 0.992546, 0.896719, 0.433235, -0.0905667, 0, 0, 0 )
-light_color = Color( 0.835294, 0.239216, 1, 1 )
-light_energy = 8.0
-light_indirect_energy = 0.0
-light_specular = 0.0
 
 [node name="LeftContainer" type="VBoxContainer" parent="."]
 show_behind_parent = true
@@ -170,10 +139,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="LeftContainer"]
-margin_right = 973.0
+margin_right = 784.0
 margin_bottom = 155.0
-custom_styles/normal = SubResource( 1 )
-custom_fonts/font = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+custom_fonts/font = SubResource( 4 )
 text = "Dorbits"
 script = ExtResource( 8 )
 __meta__ = {
@@ -181,58 +150,63 @@ __meta__ = {
 }
 
 [node name="FontShader" type="ColorRect" parent="LeftContainer/Label"]
-material = SubResource( 4 )
-margin_right = 973.0
+material = SubResource( 6 )
+margin_right = 784.0
 margin_bottom = 155.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MenuOptions" type="VBoxContainer" parent="LeftContainer"]
-anchor_top = -0.120275
-anchor_bottom = -0.120275
 margin_top = 159.0
-margin_right = 973.0
-margin_bottom = 515.0
+margin_right = 784.0
+margin_bottom = 371.0
 size_flags_vertical = 3
 custom_constants/separation = 5
 alignment = 1
-script = ExtResource( 2 )
 
-[node name="Continue" type="Label" parent="LeftContainer/MenuOptions"]
-margin_top = 77.0
-margin_right = 973.0
-margin_bottom = 141.0
-custom_fonts/font = SubResource( 8 )
+[node name="HostGame" type="Label" parent="LeftContainer/MenuOptions"]
+margin_top = 5.0
+margin_right = 784.0
+margin_bottom = 69.0
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "Continue"
+text = "Host game"
 
-[node name="NewGame" type="Label" parent="LeftContainer/MenuOptions"]
-margin_top = 146.0
-margin_right = 973.0
-margin_bottom = 210.0
-custom_fonts/font = SubResource( 8 )
+[node name="JoinGame" type="Label" parent="LeftContainer/MenuOptions"]
+margin_top = 74.0
+margin_right = 784.0
+margin_bottom = 138.0
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
-text = "new game"
+text = "join game"
 
 [node name="Options" type="Label" parent="LeftContainer/MenuOptions"]
-margin_top = 215.0
-margin_right = 973.0
-margin_bottom = 279.0
-custom_fonts/font = SubResource( 8 )
+margin_top = 143.0
+margin_right = 784.0
+margin_bottom = 207.0
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "options"
 
 [node name="Version" type="Label" parent="LeftContainer"]
-anchor_top = -0.178694
-anchor_bottom = -0.178694
-margin_top = 519.0
-margin_right = 973.0
-margin_bottom = 582.0
-custom_fonts/font = SubResource( 9 )
+margin_top = 375.0
+margin_right = 784.0
+margin_bottom = 438.0
+custom_fonts/font = SubResource( 8 )
 custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 text = "Prototype
-Version: 0.7.5"
+Version: 0.8.5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="NameEdit" type="LineEdit" parent="."]
+margin_left = 127.549
+margin_top = 542.15
+margin_right = 299.549
+margin_bottom = 566.15
+text = "David"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -3,6 +3,8 @@
 [ext_resource path="res://GUIs/SatelliteInfos/Camera.gd" type="Script" id=1]
 
 
+
+
 [sub_resource type="Animation" id=1]
 resource_name = "Rotate"
 length = 20.0

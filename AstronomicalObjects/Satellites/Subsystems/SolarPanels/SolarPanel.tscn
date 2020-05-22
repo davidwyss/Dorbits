@@ -3,7 +3,7 @@
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanel.gd" type="Script" id=2]
 [ext_resource path="res://AstronomicalObjects/Satellites/Subsystems/SolarPanels/SolarPanelWingCase.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=1]
 length = 18.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("../mesh:translation")
@@ -195,5 +195,5 @@ script = ExtResource( 2 )
 [node name="WingCase" parent="." instance=ExtResource( 3 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="WingCase"]
-anims/Expand = SubResource( 3 )
+anims/Expand = SubResource( 1 )
 anims/Test = SubResource( 2 )
