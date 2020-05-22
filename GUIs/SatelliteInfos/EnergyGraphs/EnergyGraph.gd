@@ -19,7 +19,7 @@ func graph_point(energy, max_energy):
         
 func _on_Timer_timeout():
     if satellite!=null:
-        $EnergyLine/EnergyInfo.set_text("%sWh/%sWh." % [int(satellite.max_energy/1000),int(satellite.energy/1000)])
+        $EnergyInfo.set_text("%sWh/%sWh." % [int(satellite.max_energy/1000),int(satellite.energy/1000)])
         graph_point(satellite.energy,satellite.max_energy)
  
         

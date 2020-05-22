@@ -5,6 +5,7 @@
 [ext_resource path="res://GUIs/SatelliteInfos/SubmoduleIcons/SubmoduleIcon.tscn" type="PackedScene" id=3]
 
 
+
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 2 )
 shader_param/ROTATIONAL_SPEED = 3.0
