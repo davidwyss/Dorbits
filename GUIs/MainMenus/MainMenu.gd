@@ -6,6 +6,8 @@ var labelcount = 3
 func _ready():
     Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
     select_menu_option(0)
+    randomize()
+    $NameEdit.text += String(randi())
 
 func _process(_delta):
         if Input.is_action_just_pressed("ui_down"):

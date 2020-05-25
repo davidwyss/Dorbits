@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type spatial;
+uniform vec3 color = vec3(1.);
+uniform vec3 color_top = vec3(1.);
+uniform float brightness = 1.;
+
+void fragment(){
+    if(UV.y <0.5){
+        float s = mod(UV.y*100.,1.);
+        ALBEDO = color*s*brightness;
+    }
+    else {
+        ALBEDO = color_top;
+    }
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/color = Vector3( 0.294, 0.968, 0.976 )
+shader_param/color_top = Vector3( 0, 0, 0 )
+shader_param/brightness = 0.104
+
+[sub_resource type="CylinderMesh" id=3]
+top_radius = 0.05
+bottom_radius = 0.2
+height = 2.75
+
+[node name="mesh" type="MeshInstance"]
+transform = Transform( 2.65431e-14, 1.62921e-07, 1, 1, -1.62921e-07, 0, 1.62921e-07, 1, -1.62921e-07, 0, 0, 0 )
+material_override = SubResource( 2 )
+mesh = SubResource( 3 )
+material/0 = null
