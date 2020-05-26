@@ -1,18 +1,20 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenarios/Scenario.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Cameras/Camera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenarios/DefaultScenarios/1v1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/Shaders/MousePointer.shader" type="Shader" id=5]
+[ext_resource path="res://Players/Player.tscn" type="PackedScene" id=6]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
 
 [node name="Main" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.278612 )
 script = ExtResource( 1 )
 Scenario = ExtResource( 4 )
+PlayerScene = ExtResource( 6 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 transform = Transform( -0.431188, -0.426712, 0.79498, -2.06727e-08, 0.881097, 0.472936, -0.902262, 0.203924, -0.379918, 26.3066, 48.1323, -34.898 )
@@ -23,16 +25,18 @@ enabled = true
 exclude_parent = false
 cast_to = Vector3( 0, 0, -2000 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="HUD" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource( 2 )
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+material = SubResource( 1 )
 margin_right = 1024.0
 margin_bottom = 600.0
 color = Color( 0.690196, 0, 0, 0 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Players" type="Node" parent="HUD"]
 
 [node name="Scenario" parent="." instance=ExtResource( 2 )]

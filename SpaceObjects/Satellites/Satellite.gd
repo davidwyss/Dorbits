@@ -3,17 +3,17 @@ extends "res://SpaceObjects/SpaceObject.gd"
 
 #Subsystems
 export(PackedScene) var SatelliteInfos
-export(PackedScene) var panel_scene
-export(PackedScene) var laser_scene
-export(PackedScene) var sensor_scene
-export(PackedScene) var telemetry_scene
-export(PackedScene) var thruster_scene
-export(PackedScene) var shield_scene
+export(PackedScene) var PanelScene
+export(PackedScene) var LaserScene
+export(PackedScene) var SensorScene
+export(PackedScene) var TelemetryScene
+export(PackedScene) var ThrusterScene
+export(PackedScene) var ShieldScene
 
 var panels = []
 var lasers = []
 var sensors = []
-var telemetry
+var telemetry = []
 var thrusters = []
 var shields = []
 
@@ -27,7 +27,7 @@ signal material_array_changed
 
 #Energy
 var max_energy = 50000
-var energy = 12000 setget set_energy
+puppet var energy = 12000 setget set_energy
 
 func set_energy(_energy):
     energy = max(min(_energy,max_energy),0)
@@ -43,7 +43,7 @@ func _ready():
     test_materials()
     
 func _process(_delta):
-    set_energy(energy - 10)
+    set_energy(energy - 5)
         
 func test_materials():
     for m in materialDB.new().materials:
@@ -52,11 +52,12 @@ func test_materials():
     
 #Subsystems
 func spawn_subsystems():
-        panels.append(panel_scene.instance())
-        sensors.append(sensor_scene.instance())
-        telemetry = telemetry_scene.instance()
-        shields.append(shield_scene.instance())
-        lasers.append(laser_scene.instance())
+        panels.append(PanelScene.instance())
+        sensors.append(SensorScene.instance())
+        telemetry.append(TelemetryScene.instance())
+        shields.append(ShieldScene.instance())
+        lasers.append(LaserScene.instance())
+        thrusters.append(ThrusterScene.instance())
         var subsystems = get_subsystems() 
         for i in range(subsystems.size()):
             add_child(subsystems[i])
@@ -69,7 +70,7 @@ func spawn_subsystems():
         
         
 func get_subsystems():
-    return panels + sensors + shields + lasers + [telemetry] 
+    return panels + sensors + shields + thrusters + lasers + telemetry 
 
 func rotateAround(obj, point, axis, angle):
     var rot = angle + obj.rotation.y 
