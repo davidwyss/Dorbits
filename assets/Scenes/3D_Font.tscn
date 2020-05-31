@@ -1,0 +1,54 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://assets/Scenes/Labels/Font.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/Scenes/Labels/Label.gd" type="Script" id=2]
+[ext_resource path="res://assets/Fonts/Xolonium-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="QuadMesh" id=2]
+size = Vector2( 50, 10 )
+
+[sub_resource type="ViewportTexture" id=5]
+viewport_path = NodePath("Origin/Viewport")
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+flags_unshaded = true
+params_blend_mode = 1
+params_billboard_mode = 1
+albedo_color = Color( 1, 1, 1, 0 )
+albedo_texture = SubResource( 5 )
+
+[sub_resource type="StyleBoxFlat" id=6]
+bg_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 48
+font_data = ExtResource( 3 )
+
+[node name="Origin" type="MeshInstance"]
+mesh = SubResource( 2 )
+material/0 = SubResource( 4 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1000, 200 )
+transparent_bg = true
+usage = 0
+render_target_v_flip = true
+
+[node name="Name" type="Label" parent="Viewport" instance=ExtResource( 1 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 6.10352e-05
+margin_bottom = 1.52588e-05
+custom_styles/normal = SubResource( 6 )
+custom_fonts/font = SubResource( 7 )
+text = "x
+"
+align = 1
+clip_text = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="item_rect_changed" from="Viewport/Name" to="Viewport/Name" method="_on_Label_item_rect_changed"]
+[connection signal="resized" from="Viewport/Name" to="Viewport/Name" method="_on_Label_resized"]
