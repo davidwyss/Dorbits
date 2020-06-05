@@ -1,51 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Materials/Aluminium.tres" type="Material" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Effects/Flames/Flames.tscn" type="PackedScene" id=2]
 
 [sub_resource type="CylinderMesh" id=1]
 top_radius = 0.15
 bottom_radius = 0.2
 height = 0.5
-
-[sub_resource type="Curve" id=2]
-_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.195455, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.940909, 0.263636 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=3]
-curve = SubResource( 2 )
-
-[sub_resource type="ParticlesMaterial" id=4]
-emission_shape = 1
-emission_sphere_radius = 0.4
-direction = Vector3( 0, 1, 0 )
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 10.0
-initial_velocity_random = 0.1
-angular_velocity = 40.0
-angular_velocity_random = 1.0
-linear_accel = 4.0
-linear_accel_random = 1.0
-angle = 360.0
-angle_random = 1.0
-scale_random = 0.8
-scale_curve = SubResource( 3 )
-hue_variation_random = 0.56
-
-[sub_resource type="SpatialMaterial" id=5]
-flags_transparent = true
-flags_unshaded = true
-vertex_color_use_as_albedo = true
-params_blend_mode = 1
-params_billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-albedo_color = Color( 0.690196, 0.921569, 1, 1 )
-albedo_texture = ExtResource( 2 )
-
-[sub_resource type="QuadMesh" id=6]
-material = SubResource( 5 )
 
 [node name="Thruster" type="MeshInstance"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, -1.25, 2 )
@@ -53,10 +14,4 @@ material_override = ExtResource( 1 )
 mesh = SubResource( 1 )
 material/0 = null
 
-[node name="Particles" type="Particles" parent="."]
-amount = 100
-lifetime = 0.5
-randomness = 1.0
-draw_order = 2
-process_material = SubResource( 4 )
-draw_pass_1 = SubResource( 6 )
+[node name="Particles" parent="." instance=ExtResource( 2 )]
