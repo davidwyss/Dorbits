@@ -10,11 +10,11 @@ func _ready():
     $NameEdit.text += String(randi())
 
 func _process(_delta):
-        if Input.is_action_just_pressed("ui_down"):
+        if Input.is_action_just_pressed("backward"):
             select_menu_option(selected_label_index + 1 if  selected_label_index + 1 < labelcount else 0)
-        if Input.is_action_just_pressed("ui_up"):
+        if Input.is_action_just_pressed("forward"):
             select_menu_option(selected_label_index - 1 if  selected_label_index - 1 >= 0 else labelcount -1)
-        if Input.is_action_just_pressed("ui_right") || Input.is_action_pressed("enter"):
+        if Input.is_action_just_pressed("move_right") || Input.is_action_pressed("enter"):
             if selected_label_index == 0:
                 if $NameEdit.text != "":
                     Network.create_server($NameEdit.text)

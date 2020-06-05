@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GUIs/PauseMenus/PauseMenu.gd" type="Script" id=1]
+
+[node name="PauseMenu" type="VBoxContainer"]
+margin_left = 445.0
+margin_top = 260.0
+margin_right = 579.0
+margin_bottom = 328.0
+alignment = 1
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LoadDefaultSceneButton" type="Button" parent="."]
+margin_right = 134.0
+margin_bottom = 20.0
+text = "Load Default Scene"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuickSaveButton" type="Button" parent="."]
+margin_top = 24.0
+margin_right = 134.0
+margin_bottom = 44.0
+text = "Quicksave"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="QuickLoadButton" type="Button" parent="."]
+margin_top = 48.0
+margin_right = 134.0
+margin_bottom = 68.0
+text = "Quickload "
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -16,3 +16,18 @@ func get_info_panel():
     var p = StarInfos.instance()
     p.set_star(self)
     return p 
+    
+func get_state():
+    var save_dict = {
+        "solar_surface_kelvin" : solar_surface_kelvin,
+        "solar_radius" : solar_radius
+    }
+    var super = .get_state()
+    for key in super:
+        save_dict[key] = super[key]
+    return save_dict
+
+func set_state(data):
+    .set_state(data)
+    solar_radius = data["solar_radius"]
+    solar_surface_kelvin = data["solar_surface_kelvin"]

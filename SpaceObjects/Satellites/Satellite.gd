@@ -105,3 +105,23 @@ func get_info_panel():
     var p = SatelliteInfos.instance()
     p.set_satellite(self)
     return p 
+    
+func get_state():
+    var save_dict = {
+        "energy" : energy,
+    }
+    save_dict["materials"] = []
+    for material in materials:
+         save_dict["materials"].append(material.get_state())
+    #Combine function
+    var super = .get_state()
+    for key in super:
+        save_dict[key] = super[key]
+    return save_dict
+
+func set_state(data):
+    .set_state(data)
+    energy = data["energy"]
+    for material_state in data["materials"]:
+        var new_material = material.new()
+        new_material.set_state(material_state)

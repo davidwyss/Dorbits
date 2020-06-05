@@ -11,6 +11,8 @@ var self_data = { name = '', position = Vector2(360, 180) }
 signal player_disconnected
 # warning-ignore:unused_signal
 signal server_disconnected
+# warning-ignore:unused_signal
+#signal player_ready(_id,_name)
 
 func _ready():
 # warning-ignore:return_value_discarded
@@ -63,8 +65,4 @@ remote func _request_players(request_from_id):
 
 remote func _send_player_info(id, info):
     players[id] = info
-    print(id,info)
-
-#func update_position(id, position):
-#    pass
-#    players[id].position = position
+    

@@ -11,6 +11,7 @@ func _enter_tree():
     active = true
 
 func _ready():
+    add_to_group("Persist")    
     rset_config("translation", get_tree().multiplayer.RPC_MODE_PUPPET)
     active = true
 
@@ -34,17 +35,27 @@ func _physics_process(delta):
     if active:
         get_pulled_towards_object(get_parent(), delta)
         
-
-
-
 func _on_AstroObj_area_entered(area):
     #inelastic collision
     if solar_mass < area.solar_mass:
         var combined_mass = solar_mass + area.solar_mass
-        #m1*v1 + m2*v2 = (m1 + m2) * vf
+        #m1*v1 + m2*v2 = (m1 + m2) * v
         var final_velocity = direction * solar_mass + area.direction * area.solar_mass / combined_mass
         area.solar_mass = combined_mass
         area.direction = final_velocity
         self.queue_free()
         
+func get_state():
+    var save_dict = {
+        "filename" : get_filename(),
+        "direction" : [direction.x,direction.y,direction.z],
+        "translation" : [translation.x,translation.y,translation.z],
+        "solar_mass" : solar_mass}
+    return save_dict
     
+func set_state(data):
+    var d = data["direction"]
+    var t = data["translation"]
+    direction = Vector3(d[0],d[1],d[2])
+    translation = Vector3(t[0],t[1],t[2])
+    set_solar_mass(data["solar_mass"])

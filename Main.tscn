@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Scenarios/Scenario.tscn" type="PackedScene" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenarios/DefaultScenarios/1v1.tscn" type="PackedScene" id=4]
 [ext_resource path="res://assets/Shaders/MousePointer.shader" type="Shader" id=5]
 [ext_resource path="res://Players/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://GUIs/PauseMenus/PauseMenu.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 5 )
@@ -13,12 +14,14 @@ shader = ExtResource( 5 )
 [node name="Main" type="Spatial"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.278612 )
 script = ExtResource( 1 )
-Scenario = ExtResource( 4 )
+DefaultScenario = ExtResource( 4 )
+Scenario = ExtResource( 2 )
 PlayerScene = ExtResource( 6 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
-transform = Transform( -0.431188, -0.426712, 0.79498, -2.06727e-08, 0.881097, 0.472936, -0.902262, 0.203924, -0.379918, 26.3066, 48.1323, -34.898 )
-far = 10000.0
+transform = Transform( -0.431188, -0.426712, 0.79498, -2.06727e-08, 0.881097, 0.472936, -0.902262, 0.203924, -0.379918, 3.84092, 1.73756, -0.28691 )
+far = 8192.0
+max_speed = Vector3( 100, 100, 100 )
 
 [node name="RayCast" type="RayCast" parent="Camera"]
 enabled = true
@@ -39,4 +42,5 @@ __meta__ = {
 
 [node name="Players" type="Node" parent="HUD"]
 
-[node name="Scenario" parent="." instance=ExtResource( 2 )]
+[node name="PauseMenu" parent="HUD" instance=ExtResource( 7 )]
+visible = false

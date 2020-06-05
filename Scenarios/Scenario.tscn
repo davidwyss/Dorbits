@@ -4,3 +4,4 @@
 
 [node name="Scenario" type="Spatial"]
 script = ExtResource( 1 )
+rift_spawn_bounds_box = Vector3( 5, 5, 5 )

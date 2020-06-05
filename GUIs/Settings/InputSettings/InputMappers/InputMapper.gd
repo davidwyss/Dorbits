@@ -15,15 +15,19 @@ var profile_normal = {
     'move_right': KEY_D,
     'move_up': KEY_Q,
     'move_down': KEY_E,
+    'pause': KEY_P
 }
+
 var profile_alternate = {
     'forward': KEY_UP,
     'backward': KEY_DOWN,
     'move_left': KEY_LEFT,
     'move_right': KEY_RIGHT,
     'move_up': KEY_PAGEUP,
-    'move_down': KEY_PAGEDOWN
+    'move_down': KEY_PAGEDOWN,
+    'pause': KEY_P    
 }
+
 var profile_custom = profile_normal
 
 func change_profile(id):
