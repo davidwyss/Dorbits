@@ -28,6 +28,8 @@ export var left_action = "move_left"
 export var right_action = "move_right"
 export var up_action = "move_up"
 export var down_action = "move_down"
+export var camera_faster = "camera_faster"
+export var camera_slower = "camera_slower"
 
 # Gui settings
 export var gui_action = "ui_cancel"
@@ -42,6 +44,9 @@ var _total_pitch = 0.0
 var _direction = Vector3(0.0, 0.0, 0.0)
 var _speed = Vector3(0.0, 0.0, 0.0)
 var _gui
+
+signal space_object_selected(space_object)
+
 
 func _ready():
     _check_actions([forward_action, backward_action, left_action, right_action, gui_action, up_action, down_action])
@@ -81,6 +86,16 @@ func _input(event):
         elif not Input.is_action_pressed(up_action) and not Input.is_action_pressed(down_action):
             _direction.y = 0
 
+        if event.is_action_pressed(camera_faster):
+            max_speed *= 1.5
+        if event.is_action_pressed(camera_slower):
+            max_speed /= 1.5
+        if Input.is_action_just_pressed("select_celestial_object"):
+            emit_signal("space_object_selected", $RayCast.get_collider())
+            print($RayCast.get_collider())
+                
+
+        
 func _process(delta):
     if privot:
         _update_distance()
@@ -198,3 +213,4 @@ func set_smoothness(value):
 
 func set_distance(value):
     distance = max(0, value)
+

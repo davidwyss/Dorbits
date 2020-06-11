@@ -15,7 +15,9 @@ var profile_normal = {
     'move_right': KEY_D,
     'move_up': KEY_Q,
     'move_down': KEY_E,
-    'pause': KEY_P
+    'pause': KEY_P,
+    'camera_faster': KEY_N,
+    'camera_slower': KEY_M
 }
 
 var profile_alternate = {
@@ -25,7 +27,9 @@ var profile_alternate = {
     'move_right': KEY_RIGHT,
     'move_up': KEY_PAGEUP,
     'move_down': KEY_PAGEDOWN,
-    'pause': KEY_P    
+    'pause': KEY_P,
+    'camera_faster': KEY_N,
+    'camera_slower': KEY_M
 }
 
 var profile_custom = profile_normal
