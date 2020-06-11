@@ -1,11 +1,9 @@
-extends Node
 
 var id
 var rift
 var nickname
-var is_puppet
-
-func init(_nickname, _is_puppet):
-    $Name.text = nickname
+var scene_loaded = false
+ 
+func _init(_id,_nickname):
+    id = _id
     nickname = _nickname
-    is_puppet = _is_puppet

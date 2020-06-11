@@ -9,25 +9,14 @@
 rift_scene = ExtResource( 5 )
 
 [node name="Soybek" parent="." index="0" instance=ExtResource( 3 )]
-transform = Transform( -0.695932, 0, -0.718107, 0, 1, 0, 0.718107, 0, -0.695932, -10, 0, 10 )
-direction = Vector3( 1, 0, 0 )
+transform = Transform( 0.999999, 0, 0, 0, 1, 0, 0, 0, 0.999999, 0, 0, 0 )
 
-[node name="Soybek2" parent="." index="1" instance=ExtResource( 3 )]
-transform = Transform( -0.695932, 0, -0.718107, 0, 1, 0, 0.718107, 0, -0.695932, -10, 0, -10 )
-direction = Vector3( 0, 0, 1 )
-
-[node name="Soybek3" parent="." index="2" instance=ExtResource( 3 )]
-transform = Transform( -0.695932, 0, -0.718107, 0, 1, 0, 0.718107, 0, -0.695932, 10, 0, -10 )
-direction = Vector3( -1, 0, 0 )
-
-[node name="Soybek4" parent="." index="3" instance=ExtResource( 3 )]
-transform = Transform( -0.695932, 0, -0.718107, 0, 1, 0, 0.718107, 0, -0.695932, 10, 0, 10 )
-direction = Vector3( 0, 0, -1 )
-
-[node name="Yue" parent="." index="4" instance=ExtResource( 2 )]
-transform = Transform( -0.0347967, 0, -0.0359053, 0, 0.05, 0, 0.0359053, 0, -0.0347967, -8.2934, 2.39483, 4.50733 )
+[node name="Maximus" parent="." index="1" instance=ExtResource( 2 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 30, 0, 0 )
+direction = Vector3( 0, 0, 100 )
 solar_mass = 0.001
 
-[node name="Maximus" parent="." index="5" instance=ExtResource( 2 )]
-transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.567221, 0.577418, -0.841672 )
-solar_mass = 0.005
+[node name="Maximus2" parent="." index="2" instance=ExtResource( 2 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -100, 0, 0 )
+direction = Vector3( 0, 0, 200 )
+solar_mass = 0.001

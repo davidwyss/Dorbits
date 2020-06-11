@@ -31,3 +31,4 @@ func set_state(data):
     .set_state(data)
     solar_radius = data["solar_radius"]
     solar_surface_kelvin = data["solar_surface_kelvin"]
+    

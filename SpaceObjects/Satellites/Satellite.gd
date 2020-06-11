@@ -125,3 +125,4 @@ func set_state(data):
     for material_state in data["materials"]:
         var new_material = material.new()
         new_material.set_state(material_state)
+

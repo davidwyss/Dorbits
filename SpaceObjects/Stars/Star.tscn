@@ -42,8 +42,11 @@ shape = SubResource( 1 )
 light_energy = 2.0
 omni_range = 74.481
 
-[node name="MeshInstance" type="MeshInstance" parent="." index="2"]
+[node name="Mesh" type="MeshInstance" parent="." index="2"]
 transform = Transform( -0.974676, 0, -0.223337, 0, 1, 0, 0.223337, 0, -0.974676, 0, 0, 0 )
 material_override = SubResource( 2 )
 mesh = SubResource( 3 )
 material/0 = SubResource( 6 )
+
+[node name="TrackballCamera" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.308 )

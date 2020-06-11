@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://GUIs/SpaceObjectLists/SpaceObjectItem.gd" type="Script" id=3]
+
+[node name="SpaceObjectItem" type="Control"]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="Label" parent="."]
+margin_top = 50.0
+margin_right = 65.0
+margin_bottom = 65.0
+text = "Planet"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 25, 25 )
+
+[node name="Viewport" type="Viewport" parent="."]
