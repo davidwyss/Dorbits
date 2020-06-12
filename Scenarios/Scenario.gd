@@ -8,3 +8,4 @@ func spawn_player_rift(player):
     rift.translation = rift_spawn_bounds_box * (-.5 + randf())
     add_child(rift)
     player.rift = rift
+    

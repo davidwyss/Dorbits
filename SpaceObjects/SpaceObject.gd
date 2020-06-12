@@ -18,7 +18,7 @@ func _ready():
     rset_config("translation", get_tree().multiplayer.RPC_MODE_PUPPET)
     active = true
 
-puppet func set_solar_mass(value):
+remotesync func set_solar_mass(value):
     solar_mass = value
     scale = Vector3(value,value,value) * 10
 
@@ -40,11 +40,14 @@ func _physics_process(delta):
         get_pulled_towards_object(get_parent(), delta)
         
 func _on_AstroObj_area_entered(area):
-    #inelastic collision
+    inelastic_collision(area)
+    
+        
+func inelastic_collision(area):
     if solar_mass < area.solar_mass:
         var combined_mass = solar_mass + area.solar_mass
         #m1*v1 + m2*v2 = (m1 + m2) * v
-        var final_velocity = direction * solar_mass + area.direction * area.solar_mass / combined_mass
+        var final_velocity = (direction * solar_mass + area.direction * area.solar_mass) / combined_mass
         area.solar_mass = combined_mass
         area.direction = final_velocity
         self.queue_free()

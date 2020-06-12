@@ -22,6 +22,7 @@ height = 2.0
 
 [node name="Satelllite" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
+solar_mass = 0.001
 SatelliteInfos = ExtResource( 11 )
 PanelScene = ExtResource( 7 )
 LaserScene = ExtResource( 6 )
@@ -38,3 +39,6 @@ material/0 = null
 [node name="CollisionShape" parent="." index="1"]
 transform = Transform( 1, 0, 0, 0, -1.62921e-07, -1, 0, 1, -1.62921e-07, 0, 1, 0 )
 shape = SubResource( 2 )
+
+[node name="TrackballCamera" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8.47355 )

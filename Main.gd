@@ -7,9 +7,14 @@ export(String) var SavePath = "res://save.json"
 var players = []
 var current_info_view = null
 var scenario 
+
+#Camera
+var cameras = [] 
+onready var current_camera = $Camera
+
+
 var frames = 0
 var scenario_loaded = false
-onready var current_camera = $Camera
 
 func _ready():
     network_connections()
@@ -19,6 +24,10 @@ func _ready():
         setup_escape_menu()
         load_scenario(DefaultScenario.instance())
         
+func _input(_event):
+    if Input.is_action_just_pressed("select_next_camera"):
+        select_next_camera()       
+        
 func _process(_delta):
     $Camera/RayCast.collide_with_areas = true
     if frames % 60 == 0 && is_network_master():
@@ -26,6 +35,8 @@ func _process(_delta):
         for sobject in scenario.get_children():
             if "energy" in sobject:
                 sobject.rset("energy", sobject.energy)
+            if "solar_mass" in sobject: 
+                sobject.rpc("set_solar_mass", sobject.solar_mass)
     frames+=1
 
 func _physics_process(_delta):
@@ -49,10 +60,11 @@ func setup_escape_menu():
 
 #Camera
 func on_space_object_selected(space_object):
-    if current_info_view != null:
-        $HUD.remove_child(current_info_view)
+    if current_camera != $Camera:
         current_camera = $Camera
         current_camera.current = true #free floating
+    if current_info_view != null:
+        $HUD.remove_child(current_info_view)
         current_info_view = null
     elif space_object != null:
         if space_object.has_method("get_info_panel"):
@@ -62,9 +74,26 @@ func on_space_object_selected(space_object):
             current_camera = space_object.get_camera()
             current_camera.current = true            
 
+
+func get_cameras():
+    var _cameras = [$Camera]
+    for sp in $Scenario.get_children():
+        if sp.has_method("get_camera"):
+            _cameras.append(sp.get_camera())
+    print(_cameras.size())
+    return _cameras
+
+func set_cameras():
+    cameras = get_cameras()
+
+func select_next_camera():
+    set_cameras()
+    current_camera = cameras[(cameras.find(current_camera) +1) % cameras.size()]
+    current_camera.current = true
+
 #general networking stuff
-func _on_player_disconnected(id):
-    get_node(str(id)).queue_free()
+#func _on_player_disconnected(id): ???
+#    get_node(str(id)).queue_free() ???
 
 func _on_server_disconnected():
     # warning-ignore:return_value_discarded 
@@ -75,7 +104,7 @@ func _on_player_ready(_id,_name):
     players.append(player)
     if is_network_master():
         send_save_file(_id)
-#        scenario.spawn_player_rift(player)
+        scenario.spawn_player_rift(player)
 
 
 master func synchronize_motion():
@@ -85,9 +114,7 @@ master func synchronize_motion():
         if "direction" in child: 
             child.rset("direction", child.direction)
             
-#        if "solar_mass" in child: 
-#            rpc("set_solar_mass", child.solar_mass)
-    
+
 #save, load and create scenario/game
 func load_scenario(_scenario):
     scenario_loaded = false

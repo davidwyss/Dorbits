@@ -29,25 +29,21 @@ signal material_array_changed
 var max_energy = 50000
 puppet var energy = 12000 setget set_energy
 
+
 func set_energy(_energy):
     energy = max(min(_energy,max_energy),0)
 
 func _ready():
     spawn_subsystems()
-    test_materials()
-    test_materials()
-    test_materials()
-    test_materials()
-    test_materials()
-    test_materials()
-    test_materials()
+    if is_network_master():
+        test_materials()
     
 func _process(_delta):
     set_energy(energy - 5)
         
 func test_materials():
     for m in materialDB.new().materials:
-        m.amount = 10
+        m.amount = 70
         add_material(m)
     
 #Subsystems
@@ -125,4 +121,6 @@ func set_state(data):
     for material_state in data["materials"]:
         var new_material = material.new()
         new_material.set_state(material_state)
-
+        add_material(new_material)
+        
+    
